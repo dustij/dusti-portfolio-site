@@ -33,6 +33,7 @@ export default function Navbar() {
                 {links.map((link, key) => {
                     return (
                         <Link
+                            key={key}
                             href={link.href}
                             aria-label={link.label}
                             target="_blank"
