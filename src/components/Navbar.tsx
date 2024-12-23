@@ -22,7 +22,7 @@ export default function Navbar() {
                 <Link href="/" aria-label="Home">
                     <Image
                         src="/assets/dj-logo.svg"
-                        alt="logo"
+                        alt="DJ"
                         className="mx-2"
                         width={50}
                         height={33}
