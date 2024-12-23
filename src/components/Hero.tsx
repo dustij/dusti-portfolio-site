@@ -1,5 +1,7 @@
 import { HERO_CONTENT } from "@/constants";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 export default function Hero() {
     return (
@@ -21,12 +23,22 @@ export default function Hero() {
                         <h2 className="pb-2 text-4xl tracking-tighter lg:text-8xl">
                             Dusti Johnson
                         </h2>
-                        <span className="bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-3xl tracking-tight text-transparent">
-                            Full Stack Developer/CIS Student
+                        <span className="bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-2xl tracking-tight text-transparent lg:text-3xl">
+                            Software Developer/CIS Student
                         </span>
                         <p className="my-2 max-w-lg py-6 text-xl leading-relaxed tracking-tight">
                             {HERO_CONTENT}
                         </p>
+                        <Button asChild variant={"secondary"}>
+                            <Link
+                                href="/resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                download
+                            >
+                                Download Resume
+                            </Link>
+                        </Button>
                     </div>
                 </div>
             </div>
