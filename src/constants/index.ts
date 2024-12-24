@@ -4,6 +4,12 @@ export const HERO_CONTENT = `I am a CIS student and passionate programmer. Since
 
 export const ABOUT_TEXT = `I am a dedicated Computer Information Science (CIS) student and passionate programmer with a strong foundation in software development. Since beginning my programming journey in 2020 with Python, I have built personal applications and scripts to solve real-world problems and fuel my curiosity. In 2022, I embarked on a full-stack web development path, gaining hands-on experience with JavaScript, TypeScript, React, Next.js, and Node.js. My backend expertise includes building APIs with Python's Django Rest Framework and designing database schemas with MySQL and Drizzle ORM. Currently pursuing a bachelor's degree, I am deepening my understanding of Java and object-oriented software design. My goal is to become a versatile developer equipped to create innovative solutions for any challenge.`;
 
+export const LINKS = [
+    {href: "#projects", label: "Projects"},
+    {href: "#about", label: "About"},
+    {href: "#contact", label: "Contact"},
+]
+
 export const EXPERIENCES = [
     {
         year: "2023 - Present",
