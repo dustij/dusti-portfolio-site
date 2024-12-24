@@ -9,22 +9,22 @@ export default function Technologies() {
             <h2 className="my-20 text-center text-4xl">Technologies</h2>
             <div className="flex flex-wrap items-center justify-center gap-4">
                 <div>
-                    <RiReactjsLine className="text-7xl text-cyan-400" />
+                    <RiReactjsLine className="text-7xl" />
                 </div>
                 <div className="p-4">
                     <TbBrandNextjs className="text-7xl" />
                 </div>
                 <div className="p-4">
-                    <GrMysql className="text-7xl text-orange-400" />
+                    <GrMysql className="text-7xl" />
                 </div>
                 <div className="p-4">
-                    <FaNodeJs className="text-7xl text-green-500" />
+                    <FaNodeJs className="text-7xl" />
                 </div>
                 <div className="p-4">
-                    <FaJava className="text-7xl text-sky-500" />
+                    <FaJava className="text-7xl" />
                 </div>
                 <div className="p-4">
-                    <FaPython className="text-7xl text-yellow-300" />
+                    <FaPython className="text-7xl" />
                 </div>
             </div>
         </div>

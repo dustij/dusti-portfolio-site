@@ -30,19 +30,17 @@ export default function Navbar() {
                 </Link>
             </div>
             <div className="m-8 flex items-center justify-center gap-4 text-2xl">
-                {links.map((link, key) => {
-                    return (
-                        <Link
-                            key={key}
-                            href={link.href}
-                            aria-label={link.label}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {link.children}
-                        </Link>
-                    );
-                })}
+                {links.map((link, key) => (
+                    <Link
+                        key={key}
+                        href={link.href}
+                        aria-label={link.label}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {link.children}
+                    </Link>
+                ))}
             </div>
         </nav>
     );
