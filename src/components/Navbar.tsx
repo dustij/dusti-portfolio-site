@@ -1,9 +1,9 @@
 "use client";
 
 import { LINKS } from "@/constants";
+import { RiCloseFill, RiMenu3Fill } from "@remixicon/react";
 import Link from "next/link";
 import { useState } from "react";
-import { RiCloseFill, RiMenu3Fill } from "@remixicon/react";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function Navbar() {
 
     return (
         <nav className="fixed left-0 top-0 z-50 w-full">
-            <div className="mx-auto flex max-w-6xl items-center justify-between bg-stone-950/30 p-4 backdrop-blur-lg md:my-2 md:rounded-xl">
+            <div className="mx-auto flex max-w-6xl items-center justify-between bg-stone-950/30 p-4 backdrop-blur-lg md:my-2 md:rounded-xl border border-stone-900">
                 <div className="font-geist-mono text-lg font-semibold uppercase text-white">
                     <Link href="/">Dusti Johnson</Link>
                 </div>

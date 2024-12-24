@@ -38,7 +38,9 @@ export default function Projects() {
                                     </span>
                                 ))}
                             </div>
-                            <Button variant="secondary" className="mt-6">View Code</Button>
+                            <Button variant="secondary" className="mt-6">
+                                View Code
+                            </Button>
                         </div>
                     </div>
                 ))}
