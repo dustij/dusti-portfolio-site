@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { AiOutlinePython } from "react-icons/ai";
 import { DiSqllite } from "react-icons/di";
 import { FaJava, FaNodeJs, FaReact } from "react-icons/fa";
@@ -34,7 +34,29 @@ export default function Skills() {
         },
     };
 
-    
+    function skillsInfiniteVariants(duration: number): Variants {
+        return {
+            initial: { y: -6 },
+            animate: {
+                y: [6, -6],
+                transition: {
+                    duration: duration,
+                    ease: "linear",
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                },
+            },
+        };
+    }
+
+    const durationMap: { [key: number]: number } = {
+        0: 2.5,
+        1: 3,
+        2: 5,
+        3: 3.5,
+        4: 6,
+        5: 4,
+    };
 
     return (
         <section className="px-6 py-10" id="skills">
@@ -51,12 +73,19 @@ export default function Skills() {
                         viewport={{ once: true }}
                         variants={skillsVariants}
                     >
-                        <div className="flex flex-col items-center text-center">
+                        <motion.div
+                            initial="initial"
+                            animate="animate"
+                            variants={skillsInfiniteVariants(
+                                durationMap[key % 5],
+                            )}
+                            className="flex flex-col items-center text-center"
+                        >
                             <div className="mb-4">{skill.icon}</div>
                             <h3 className="mb-2 text-lg font-medium lg:text-xl">
                                 {skill.name}
                             </h3>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 ))}
             </div>
