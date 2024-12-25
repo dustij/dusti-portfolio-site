@@ -6,35 +6,35 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
-const textVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.8, ease: "easeOut" },
-    },
-};
-
-const containerVariants = {
-    hidden: { opacity: 1 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.3,
-        },
-    },
-};
-
-const imageVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.8, ease: "easeOut" },
-    },
-};
-
 export default function Hero() {
+    const textVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: "easeOut" },
+        },
+    };
+
+    const containerVariants = {
+        hidden: { opacity: 1 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3,
+            },
+        },
+    };
+
+    const imageVariants = {
+        hidden: { opacity: 0, y: -50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: "easeOut" },
+        },
+    };
+
     return (
         <section>
             <div className="relative z-10 min-h-screen flex flex-wrap flex-col md:flex-row items-center justify-center text-white">

@@ -43,12 +43,12 @@ export default function Navbar() {
                 </div>
             </div>
             {menuOpen && (
-                <div className="mx-auto max-w-6xl flex flex-col space-y-4 rounded-xl bg-stone-950/30 p-2 backdrop-blur-lg md:hidden">
+                <div className="mx-auto max-w-6xl flex flex-col space-y-6 bg-stone-950/30 p-6 backdrop-blur-lg md:hidden border-b border-stone-900">
                     {LINKS.map((link, key) => (
                         <Link
                             key={key}
                             href={link.href}
-                            className="text-white transition duration-300 hover:text-stone-400"
+                            className="text-white text-xl transition duration-300 hover:text-stone-400"
                             onClick={handleLinkClick}
                         >
                             {link.label}

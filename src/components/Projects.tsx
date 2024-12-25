@@ -1,50 +1,74 @@
+"use client";
+
 import { PROJECTS } from "@/constants";
-import Image from "next/image";
+import { motion } from "framer-motion";
+import Link from "next/link";
 import { Button } from "./ui/button";
 
 export default function Projects() {
+    const projectVariants = {
+        hidden: {
+            opacity: 0,
+            scale: 0.8,
+        },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                duration: 0.8,
+                ease: "easeInOut",
+            },
+        },
+    };
+
     return (
-        <div className="pb-4">
-            <h2 className="my-20 text-center text-4xl">Projects</h2>
-            <div>
+        <section className="px-6 py-10" id="projects">
+            <h1 className="text-4xl md:text-6xl font-medium tracking-tight mb-10">
+                Projects
+            </h1>
+            <div className="h-1 w-20 mb-8 bg-white"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {PROJECTS.map((project, key) => (
-                    <div
+                    <motion.div
                         key={key}
-                        className="mb-8 flex flex-wrap lg:justify-center"
+                        className="rounded-lg flex flex-col items-start bg-stone-950/60 p-6 backdrop-blur-lg md:rounded-xl border border-stone-900"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={projectVariants}
                     >
-                        <div className="w-full lg:w-1/4">
-                            <Image
-                                src={project.image}
-                                alt={project.title}
-                                className="mb-6 rounded"
-                                width={250}
-                                height={250}
-                            />
+                        <div className="w-full max-w-xl">
+                            <h3 className="mb-2 text-2xl font-semibold">
+                                {project.title}
+                            </h3>
+                            <p className="mb-4 text-stone-400">
+                                {project.description}
+                            </p>
+                            {project.technologies.map((tech, key) => (
+                                <span
+                                    key={key}
+                                    className="mr-2 rounded bg-stone-900 p-2 text-sm font-medium text-stone-300"
+                                >
+                                    {tech}
+                                </span>
+                            ))}
                         </div>
-                        <div className="">
-                            <div className="w-full max-w-xl lg:w-3/4">
-                                <h3 className="mb-2 text-2xl font-semibold">
-                                    {project.title}
-                                </h3>
-                                <p className="mb-4 text-stone-400">
-                                    {project.description}
-                                </p>
-                                {project.technologies.map((tech, key) => (
-                                    <span
-                                        key={key}
-                                        className="mr-2 rounded bg-stone-900 p-2 text-sm font-medium text-stone-300"
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-                            <Button variant="secondary" className="mt-6">
+                        <Button
+                            asChild
+                            variant="secondary"
+                            className="mt-6 rounded-xl font-geist-mono"
+                        >
+                            <Link
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 View Code
-                            </Button>
-                        </div>
-                    </div>
+                            </Link>
+                        </Button>
+                    </motion.div>
                 ))}
             </div>
-        </div>
+        </section>
     );
 }

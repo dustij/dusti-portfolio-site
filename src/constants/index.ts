@@ -1,16 +1,22 @@
 export const HERO_CONTENT = {
     greeting: "Hey, I'm Dusti!",
-    introduction: `I am a CIS student and passionate programmer.`,
-    description: `Since 2020, I’ve built applications with Python, explored full-stack development with Next.js, and gained backend experience with MySQL. Currently pursuing a bachelor’s degree, I’m refining my skills in Java and software design to become a versatile developer ready to tackle any challenge.`,
-    resume: "/resume.pdf"
+    introduction: `I'm an aspiring full stack developer, passionate about building dynamic and engaging web applications.`,
+    description: `As a CIS student, I'm sharpening my skills in TypeScript, Python, and Java, while exploring full stack development with Next.js.`,
+    resume: "/resume.pdf",
 };
 
-export const DUSTI_PICTURE = "/assets/dj-profile-2.png"
+export const ABOUT_CONTENT = {
+    paragraphs: [
+        "I am a dedicated frontend developer with a passion for building modern web applications that are both functional and aesthetically pleasing. Over the years, I have worked on numerous projects ranging from single-page applications to complex multi-tiered systems, always ensuring high performance and seamless user experiences.",
+        "I specialize in using technologies like React, Next.js, and Tailwind CSS to create responsive and scalable interfaces. My focus is on writing clean, maintainable code while collaborating with cross-functional teams to deliver projects that meet both business goals and user needs. I thrive in environments that challenge me to continuously learn and grow.",
+    ],
+};
 
-export const ABOUT_TEXT = `I am a dedicated Computer Information Science (CIS) student and passionate programmer with a strong foundation in software development. Since beginning my programming journey in 2020 with Python, I have built personal applications and scripts to solve real-world problems and fuel my curiosity. In 2022, I embarked on a full-stack web development path, gaining hands-on experience with JavaScript, TypeScript, React, Next.js, and Node.js. My backend expertise includes building APIs with Python's Django Rest Framework and designing database schemas with MySQL and Drizzle ORM. Currently pursuing a bachelor's degree, I am deepening my understanding of Java and object-oriented software design. My goal is to become a versatile developer equipped to create innovative solutions for any challenge.`;
+export const DUSTI_PICTURE = "/assets/dj-profile-2.png";
 
 export const LINKS = [
     { href: "#projects", label: "Projects" },
+    { href: "#skills", label: "Skills" },
     { href: "#about", label: "About" },
     { href: "#contact", label: "Contact" },
 ];
@@ -49,36 +55,56 @@ export const EXPERIENCES = [
 export const PROJECTS = [
     {
         title: "E-Commerce Website",
-        image: "/assets/projects/project-1.webp",
+        image: "/assets/projects/projects1.webp",
         description:
             "A fully functional e-commerce website with features like product listing, shopping cart, and user authentication.",
         technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB"],
+        link: "https://www.github.com/dustij",
     },
     {
         title: "Task Management App",
-        image: "/assets/projects/project-2.webp",
+        image: "/assets/projects/projects2.webp",
         description:
             "An application for managing tasks and projects, with features such as task creation, assignment, and progress tracking.",
         technologies: ["HTML", "CSS", "Angular", "Firebase"],
+        link: "https://www.github.com/dustij",
     },
     {
         title: "Portfolio Website",
-        image: "/assets/projects/project-3.webp",
+        image: "/assets/projects/projects3.webp",
         description:
             "A personal portfolio website showcasing projects, skills, and contact information.",
         technologies: ["HTML", "CSS", "React", "Bootstrap"],
+        link: "https://www.github.com/dustij",
     },
     {
         title: "Blogging Platform",
-        image: "/assets/projects/project-4.webp",
+        image: "/assets/projects/projects4.webp",
         description:
             "A platform for creating and publishing blog posts, with features like rich text editing, commenting, and user profiles.",
         technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
+        link: "https://www.github.com/dustij",
     },
 ];
 
-export const CONTACT = {
-    address: "767 Fifth Avenue, New York, NY 10153 ",
-    phoneNo: "+12 4555 666 00 ",
-    email: "me@example.com",
+export const CONTACT_CONTENT = {
+    headline: "LET'S WORK ON SOMETHING GREAT",
+    description:
+        "I'm excited to collaborate on projects that push boundaries and create meaningful impact. Let's build something innovative and exceptional together.",
+    email: "dustijohnson@outlook.com",
+    socialLinks: [
+        {
+            platform: "GitHub",
+            url: "https://github.com/dustij",
+            ariaLabel: "View my GitHub profile",
+            icon: "RiGithubFill",
+        },
+        {
+            platform: "LinkedIn",
+            url: "https://linkedin.com/in/dusti-johnson",
+            ariaLabel: "Connect with me on LinkedIn",
+            icon: "RiLinkedinFill",
+        },
+    ],
+    footerText: `© ${new Date().getFullYear()} Dusti Johnson. All rights reserved.`,
 };
