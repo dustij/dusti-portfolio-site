@@ -1,3 +1,4 @@
+import About from "@/components/About";
 import BlurBackground from "@/components/BlurBackground";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
@@ -14,9 +15,8 @@ export default function Home() {
                 <Hero />
                 <Projects />
                 <Skills />
+                <About />
             </main>
-            {/* remove me later below */}
-            <div className="h-[500px]"></div>
         </>
     );
 }

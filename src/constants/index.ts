@@ -7,8 +7,8 @@ export const HERO_CONTENT = {
 
 export const ABOUT_CONTENT = {
     paragraphs: [
-        "I am a dedicated frontend developer with a passion for building modern web applications that are both functional and aesthetically pleasing. Over the years, I have worked on numerous projects ranging from single-page applications to complex multi-tiered systems, always ensuring high performance and seamless user experiences.",
-        "I specialize in using technologies like React, Next.js, and Tailwind CSS to create responsive and scalable interfaces. My focus is on writing clean, maintainable code while collaborating with cross-functional teams to deliver projects that meet both business goals and user needs. I thrive in environments that challenge me to continuously learn and grow.",
+        "I’m a CIS student and an aspiring full stack developer, constantly experimenting with tools and frameworks to create impactful software solutions. My journey began in 2020, driven by a curiosity to build and a desire to solve real-world problems. Since then, I’ve tackled personal projects that merge functionality with creativity, refining my approach with each iteration.",
+        "I focus on leveraging technologies like Next.js, TypeScript, and Drizzle ORM to craft clean, scalable web applications. At the same time, I’m diving deeper into languages like Java and Python to broaden my backend capabilities and deepen my understanding of software design. For me, it’s all about continuous learning, refining systems, and delivering solutions that exceed expectations.",
     ],
 };
 

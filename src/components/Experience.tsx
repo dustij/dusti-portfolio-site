@@ -1,6 +1,7 @@
 import { EXPERIENCES } from "@/constants";
 
 export default function Experience() {
+    // TODO: when your ready follow this tutorial: https://youtu.be/JohZxs6uuQ0?t=3004
     return (
         <div className="pb-4">
             <h2 className="my-20 text-center text-4xl">Experience</h2>
