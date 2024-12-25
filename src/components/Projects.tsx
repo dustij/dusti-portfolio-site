@@ -44,14 +44,16 @@ export default function Projects() {
                             <p className="mb-4 text-stone-400">
                                 {project.description}
                             </p>
-                            {project.technologies.map((tech, key) => (
-                                <span
-                                    key={key}
-                                    className="mr-2 rounded bg-stone-900 p-2 text-sm font-medium text-stone-300"
-                                >
-                                    {tech}
-                                </span>
-                            ))}
+                            <div className="flex flex-wrap gap-2">
+                                {project.technologies.map((tech, key) => (
+                                    <span
+                                        key={key}
+                                        className="mr-2 rounded bg-stone-900 p-2 text-sm font-medium text-stone-300"
+                                    >
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                         <Button
                             asChild
