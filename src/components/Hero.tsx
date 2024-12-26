@@ -4,6 +4,8 @@ import { DUSTI_PICTURE, HERO_CONTENT } from "@/constants";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { Button } from "./ui/button";
 
 export default function Hero() {
@@ -34,6 +36,21 @@ export default function Hero() {
             transition: { duration: 0.8, ease: "easeOut" },
         },
     };
+
+    const pathname = usePathname();
+
+    useEffect(() => {
+        /*
+        There is an undesirable effect when the page is refreshed at the root route.
+        The window scrolls down slightly to the hero section. This creates alters the
+        layout and appearance of the hero section, pushing it closer to the navbar and
+        cluttering the top margin area. This useEffect call ellimnates this problem.
+        */
+        const hash = window.location.hash;
+        if (pathname === "/" && !hash) {
+            window.scrollTo(0, 0);
+        }
+    }, [pathname]);
 
     return (
         <section>
