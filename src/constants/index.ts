@@ -55,19 +55,24 @@ export const EXPERIENCES = [
 export const PROJECTS = [
     {
         title: "Portfolio Website",
-        image: "/assets/projects/projects3.webp",
         description:
             "A personal portfolio website showcasing projects, skills, and contact information.",
         technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
         link: "https://github.com/dustij/dusti-portfolio-site",
     },
     {
-        title: "Blogging Platform",
-        image: "/assets/projects/projects4.webp",
+        title: "ClumsyCat Website",
         description:
-            "A platform for creating and publishing blog posts, with features like rich text editing, commenting, and user profiles.",
-        technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
-        link: "https://www.github.com/dustij",
+            "A Solana token project with a live website, showcasing a tradeable token and blockchain integration.",
+        technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+        link: "https://github.com/dustij/clumsycat-clawz",
+    },
+    {
+        title: "CSV Combiner",
+        description:
+            "A tool to merge and validate CSV files while ensuring consistent data structure.",
+        technologies: ["Java", "JavaFX"],
+        link: "https://github.com/dustij/CSVCombiner",
     },
 ];
 

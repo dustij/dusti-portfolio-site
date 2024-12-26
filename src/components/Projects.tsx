@@ -65,7 +65,7 @@ export default function Projects() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                View Code
+                                View on GitHub
                             </Link>
                         </Button>
                     </motion.div>
