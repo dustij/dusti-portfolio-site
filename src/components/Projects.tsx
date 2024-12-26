@@ -23,15 +23,15 @@ export default function Projects() {
 
     return (
         <section className="px-6 py-10" id="projects">
-            <h1 className="text-4xl md:text-6xl font-medium tracking-tight mb-10">
+            <h1 className="mb-10 text-4xl font-medium tracking-tight md:text-6xl">
                 Projects
             </h1>
-            <div className="h-1 w-20 mb-8 bg-white"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="mb-8 h-1 w-20 bg-white"></div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {PROJECTS.map((project, key) => (
                     <motion.div
                         key={key}
-                        className="rounded-lg flex flex-col items-start bg-stone-950/60 p-6 backdrop-blur-lg md:rounded-xl border border-stone-900"
+                        className="flex flex-col items-start rounded-lg border border-stone-900 bg-stone-950/60 p-6 backdrop-blur-lg md:rounded-xl"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}

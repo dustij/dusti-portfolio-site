@@ -27,7 +27,10 @@ export default function Experience() {
                                 {experience.description}
                             </p>
                             {experience.technologies.map((tech, key) => (
-                                <span key={key} className="mr-2 mt-4 rounded bg-stone-900 px-2 py-1 text-sm font-medium text-stone-300">
+                                <span
+                                    key={key}
+                                    className="mr-2 mt-4 rounded bg-stone-900 px-2 py-1 text-sm font-medium text-stone-300"
+                                >
                                     {tech}
                                 </span>
                             ))}

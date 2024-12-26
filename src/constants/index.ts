@@ -2,7 +2,7 @@ export const HERO_CONTENT = {
     greeting: "Hey, I'm Dusti!",
     introduction: `I'm an aspiring full stack developer, passionate about building dynamic and engaging web applications.`,
     description: `As a CIS student, I'm sharpening my skills in TypeScript, Python, and Java, while exploring full stack development with Next.js.`,
-    resume: "/resume.pdf",
+    resume: "/Resume-Dusti-Johnson.pdf",
 };
 
 export const ABOUT_CONTENT = {
@@ -54,28 +54,12 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
     {
-        title: "E-Commerce Website",
-        image: "/assets/projects/projects1.webp",
-        description:
-            "A fully functional e-commerce website with features like product listing, shopping cart, and user authentication.",
-        technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB"],
-        link: "https://www.github.com/dustij",
-    },
-    {
-        title: "Task Management App",
-        image: "/assets/projects/projects2.webp",
-        description:
-            "An application for managing tasks and projects, with features such as task creation, assignment, and progress tracking.",
-        technologies: ["HTML", "CSS", "Angular", "Firebase"],
-        link: "https://www.github.com/dustij",
-    },
-    {
         title: "Portfolio Website",
         image: "/assets/projects/projects3.webp",
         description:
             "A personal portfolio website showcasing projects, skills, and contact information.",
-        technologies: ["HTML", "CSS", "React", "Bootstrap"],
-        link: "https://www.github.com/dustij",
+        technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+        link: "https://github.com/dustij/dusti-portfolio-site",
     },
     {
         title: "Blogging Platform",

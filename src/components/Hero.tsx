@@ -37,33 +37,33 @@ export default function Hero() {
 
     return (
         <section>
-            <div className="relative z-10 min-h-screen flex flex-wrap flex-col md:flex-row items-center justify-center text-white">
+            <div className="relative z-10 flex min-h-[calc(100vh+78px)] flex-col flex-wrap items-center justify-center text-white md:flex-row">
                 <motion.div
-                    className="w-full md:w-1/2 p-8"
+                    className="w-full p-8 md:w-1/2"
                     initial="hidden"
                     animate="visible"
                     variants={containerVariants}
                 >
                     <motion.h1
-                        className="text-2xl md:text-3xl lg:text-5xl my-14"
+                        className="mb-8 mt-14 text-2xl md:my-14 md:text-3xl lg:text-5xl"
                         variants={textVariants}
                     >
                         {HERO_CONTENT.greeting}
                     </motion.h1>
                     <motion.p
-                        className="text-xl md:text-2xl lg:text-4xl mb-4"
+                        className="mb-4 text-xl md:text-2xl lg:text-4xl"
                         variants={textVariants}
                     >
                         {HERO_CONTENT.introduction}
                     </motion.p>
                     <motion.p
-                        className="text-xl md:text-2xl lg:text-4xl mb-4"
+                        className="mb-4 text-xl md:text-2xl lg:text-4xl"
                         variants={textVariants}
                     >
                         {HERO_CONTENT.description}
                     </motion.p>
                     <motion.div
-                        className="p-3 lg:p4 mt-8"
+                        className="lg:p4 mt-8 p-3"
                         variants={textVariants}
                     >
                         <Button
@@ -84,7 +84,7 @@ export default function Hero() {
                     </motion.div>
                 </motion.div>
                 <motion.div
-                    className="w-full md:w-1/2 p-8"
+                    className="w-full p-8 md:w-1/2"
                     initial="hidden"
                     animate="visible"
                     variants={imageVariants}

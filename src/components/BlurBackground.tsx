@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 
@@ -67,13 +67,37 @@ const circleVariants = {
 
 export default function BlurBackground() {
     return (
-        <div className="fixed top0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none flex justify-center items-center filter blur-[100px] opacity-70">
-            <motion.div className="bg-yellow-500 w-[350px] h-[250px] rounded-full absolute" variants={circleVariants} animate="animate1"></motion.div>
-            <motion.div className="bg-orange-500 w-[360px] h-[260px] rounded-full absolute" variants={circleVariants} animate="animate2"></motion.div>
-            <motion.div className="bg-green-500 w-[370px] h-[270px] rounded-full absolute" variants={circleVariants} animate="animate3"></motion.div>
-            <motion.div className="bg-purple-500 w-[380px] h-[280px] rounded-full absolute" variants={circleVariants} animate="animate4"></motion.div>
-            <motion.div className="bg-blue-500 w-[390px] h-[290px] rounded-full absolute" variants={circleVariants} animate="animate5"></motion.div>
-            <motion.div className="bg-pink-500 w-[400px] h-[300px] rounded-full absolute" variants={circleVariants} animate="animate6"></motion.div>
+        <div className="top0 pointer-events-none fixed left-0 -z-10 flex h-full w-full items-center justify-center overflow-hidden opacity-70 blur-[100px] filter">
+            <motion.div
+                className="absolute h-[250px] w-[350px] rounded-full bg-yellow-500"
+                variants={circleVariants}
+                animate="animate1"
+            ></motion.div>
+            <motion.div
+                className="absolute h-[260px] w-[360px] rounded-full bg-orange-500"
+                variants={circleVariants}
+                animate="animate2"
+            ></motion.div>
+            <motion.div
+                className="absolute h-[270px] w-[370px] rounded-full bg-green-500"
+                variants={circleVariants}
+                animate="animate3"
+            ></motion.div>
+            <motion.div
+                className="absolute h-[280px] w-[380px] rounded-full bg-purple-500"
+                variants={circleVariants}
+                animate="animate4"
+            ></motion.div>
+            <motion.div
+                className="absolute h-[290px] w-[390px] rounded-full bg-blue-500"
+                variants={circleVariants}
+                animate="animate5"
+            ></motion.div>
+            <motion.div
+                className="absolute h-[300px] w-[400px] rounded-full bg-pink-500"
+                variants={circleVariants}
+                animate="animate6"
+            ></motion.div>
         </div>
     );
 }

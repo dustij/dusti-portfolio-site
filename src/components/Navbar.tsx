@@ -13,8 +13,8 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="fixed left-0 top-0 z-50 w-full">
-            <div className="mx-auto flex max-w-6xl items-center justify-between bg-stone-950/30 p-4 backdrop-blur-lg md:my-2 md:rounded-xl border border-stone-900">
+        <nav className="fixed left-0 top-0 z-50 h-[78px] w-full">
+            <div className="mx-auto flex max-w-6xl items-center justify-between border border-stone-900 bg-stone-950/30 p-4 backdrop-blur-lg md:my-2 md:rounded-xl">
                 <div className="font-geist-mono text-lg font-semibold uppercase text-white">
                     <Link href="/">Dusti Johnson</Link>
                 </div>
@@ -43,12 +43,12 @@ export default function Navbar() {
                 </div>
             </div>
             {menuOpen && (
-                <div className="mx-auto max-w-6xl flex flex-col space-y-6 bg-stone-950/30 p-6 backdrop-blur-lg md:hidden border-b border-stone-900">
+                <div className="mx-auto flex max-w-6xl flex-col space-y-6 border-b border-stone-900 bg-stone-950/30 p-6 backdrop-blur-lg md:hidden">
                     {LINKS.map((link, key) => (
                         <Link
                             key={key}
                             href={link.href}
-                            className="text-white text-xl transition duration-300 hover:text-stone-400"
+                            className="text-xl text-white transition duration-300 hover:text-stone-400"
                             onClick={handleLinkClick}
                         >
                             {link.label}

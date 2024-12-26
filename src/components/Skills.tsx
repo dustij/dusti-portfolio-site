@@ -58,10 +58,10 @@ export default function Skills() {
 
     return (
         <section className="px-6 py-10" id="skills">
-            <h1 className="text-4xl md:text-6xl font-medium tracking-tight mb-10">
+            <h1 className="mb-10 text-4xl font-medium tracking-tight md:text-6xl">
                 Skills
             </h1>
-            <div className="h-1 w-20 mb-8 bg-white"></div>
+            <div className="mb-8 h-1 w-20 bg-white"></div>
             <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4">
                 {skills.map((skill, key) => (
                     <motion.div
