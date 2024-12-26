@@ -34,20 +34,18 @@ export default function Skills() {
         },
     };
 
-    function skillsInfiniteVariants(duration: number): Variants {
-        return {
-            initial: { y: -6 },
-            animate: {
-                y: [6, -6],
-                transition: {
-                    duration: duration,
-                    ease: "linear",
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                },
+    const skillsCustomVariants: Variants = {
+        hidden: { y: -6 },
+        visible: (duration = 0) => ({
+            y: [6, -6],
+            transition: {
+                duration: duration,
+                ease: "linear",
+                repeat: Infinity,
+                repeatType: "reverse",
             },
-        };
-    }
+        }),
+    };
 
     const durationMap: { [key: number]: number } = {
         0: 2.5,
@@ -74,11 +72,10 @@ export default function Skills() {
                         variants={skillsVariants}
                     >
                         <motion.div
-                            initial="initial"
-                            animate="animate"
-                            variants={skillsInfiniteVariants(
-                                durationMap[key % 5],
-                            )}
+                            initial="hidden"
+                            animate="visible"
+                            custom={durationMap[key % 5]}
+                            variants={skillsCustomVariants}
                             className="flex flex-col items-center text-center"
                         >
                             <div className="mb-4">{skill.icon}</div>
