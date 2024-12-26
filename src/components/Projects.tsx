@@ -31,7 +31,7 @@ export default function Projects() {
                 {PROJECTS.map((project, key) => (
                     <motion.div
                         key={key}
-                        className="flex flex-col items-start rounded-lg border border-stone-900 bg-stone-950/60 p-6 backdrop-blur-lg md:rounded-xl"
+                        className="flex flex-col items-start justify-between rounded-lg border border-stone-900 bg-stone-950/60 p-6 backdrop-blur-lg md:rounded-xl"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
