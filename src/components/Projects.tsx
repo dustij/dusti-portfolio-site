@@ -3,6 +3,7 @@
 import { PROJECTS } from "@/constants";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { FiExternalLink } from "react-icons/fi";
 import { Button } from "./ui/button";
 
 export default function Projects() {
@@ -55,19 +56,39 @@ export default function Projects() {
                                 ))}
                             </div>
                         </div>
-                        <Button
-                            asChild
-                            variant="secondary"
-                            className="mt-6 rounded-xl font-geist-mono"
-                        >
-                            <Link
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                        <div className="mt-6 flex flex-col justify-between gap-4 sm:w-full sm:flex-row">
+                            <Button
+                                asChild
+                                variant="secondary"
+                                className="rounded-xl font-geist-mono"
                             >
-                                View on GitHub
-                            </Link>
-                        </Button>
+                                <Link
+                                    href={project.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    View on GitHub
+                                </Link>
+                            </Button>
+                            {project.site && (
+                                <Button
+                                    asChild
+                                    variant="link"
+                                    className="text-base text-stone-400"
+                                >
+                                    <Link
+                                        href={project.site}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <div className="flex w-full items-center gap-2">
+                                            <p>Check Live Site</p>
+                                            <FiExternalLink />
+                                        </div>
+                                    </Link>
+                                </Button>
+                            )}
+                        </div>
                     </motion.div>
                 ))}
             </div>

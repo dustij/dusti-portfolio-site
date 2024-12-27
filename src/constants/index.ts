@@ -64,6 +64,7 @@ export const PROJECTS = [
         title: "ClumsyCat Website",
         description:
             "A Solana token project with a live website, showcasing a tradeable token and blockchain integration.",
+        site: "https://clumsycatsol.com",
         technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
         link: "https://github.com/dustij/clumsycat-clawz",
     },
