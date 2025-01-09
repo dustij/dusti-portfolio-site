@@ -61,6 +61,14 @@ export const PROJECTS = [
         link: "https://github.com/dustij/dusti-portfolio-site",
     },
     {
+        title: "Blog Website",
+        description:
+            "A personal blog website featuring a headless CMS and responsive layout, where I share my thoughts and ideas.",
+        site: "https://blog.dustijohnson.com",
+        technologies: ["Strapi", "Next.js", "Tailwind CSS", "TypeScript", "PostgreSQL"],
+        link: "https://github.com/dustij/my-blog",
+    },
+    {
         title: "ClumsyCat Website",
         description:
             "A Solana token project with a live website, showcasing a tradeable token and blockchain integration.",
