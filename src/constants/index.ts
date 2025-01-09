@@ -15,6 +15,7 @@ export const ABOUT_CONTENT = {
 export const DUSTI_PICTURE = "/assets/dj-profile-2.png";
 
 export const LINKS = [
+    { href: "https://blog.dustijohnson.com/", label: "Blog" },
     { href: "#projects", label: "Projects" },
     { href: "#skills", label: "Skills" },
     { href: "#about", label: "About" },
