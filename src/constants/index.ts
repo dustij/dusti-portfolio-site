@@ -8,7 +8,7 @@ export const HERO_CONTENT = {
 export const ABOUT_CONTENT = {
     paragraphs: [
         "I’m a CIS student and an aspiring full stack developer, constantly experimenting with tools and frameworks to create impactful software solutions. My journey began in 2020, driven by a curiosity to build and a desire to solve real-world problems. Since then, I’ve tackled personal projects that merge functionality with creativity, refining my approach with each iteration.",
-        "I focus on leveraging technologies like Next.js, TypeScript, and Strapi to craft clean, scalable web applications. At the same time, I’m diving deeper into languages like Java and Python to broaden my backend capabilities and deepen my understanding of software design. For me, it’s all about continuous learning, refining systems, and delivering solutions that exceed expectations.",
+        "I focus on leveraging technologies like Next.js, TypeScript, and GraphQL to craft clean, scalable web applications. At the same time, I’m diving deeper into languages like Java and Python to broaden my backend capabilities and deepen my understanding of software design. For me, it’s all about continuous learning, refining systems, and delivering solutions that exceed expectations.",
     ],
 };
 
