@@ -64,9 +64,9 @@ export const PROJECTS = [
     {
         title: "Blog Website",
         description:
-            "A personal blog website featuring a headless CMS and responsive layout, where I share my thoughts and ideas.",
+            "A personal blog website featuring a headless CMS and a responsive layout, where I share my thoughts and ideas.",
         site: "https://blog.dustijohnson.com",
-        technologies: ["Strapi", "Next.js", "Tailwind CSS", "TypeScript", "PostgreSQL"],
+        technologies: ["Strapi", "GraphQL", "Next.js", "Tailwind CSS", "TypeScript", "PostgreSQL"],
         link: "https://github.com/dustij/my-blog",
     },
     {
