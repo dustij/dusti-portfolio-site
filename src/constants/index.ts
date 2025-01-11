@@ -14,7 +14,7 @@ export const ABOUT_CONTENT = {
     ],
 };
 
-export const DUSTI_PICTURE = "/assets/me-001.jpg";
+export const DUSTI_PICTURE = "/assets/me-001.JPG";
 
 export const LINKS = [
     { href: "https://blog.dustijohnson.com/", label: "Blog" },

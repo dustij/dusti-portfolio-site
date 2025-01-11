@@ -88,8 +88,8 @@ export default function Hero() {
         <Image
           src={DUSTI_PICTURE}
           alt="Dusti Johnson"
-          width={650}
-          height={650}
+          width={2050}
+          height={2050}
           className="rounded-full"
         />
       </div>
