@@ -1,18 +1,20 @@
 export const HERO_CONTENT = {
-    greeting: "Hey, I'm Dusti!",
-    introduction: `I'm an aspiring full stack developer, passionate about building dynamic and engaging web applications.`,
-    description: `As a CIS student, I'm sharpening my skills in TypeScript, Python, and Java, while exploring full stack development with Next.js.`,
-    resume: "/Resume-Dusti-Johnson.pdf",
+    forAnyone: "Hey there, I'm a programmer and a student addicted to solving problems and building things.",
+    forAnyoneAction: "Let's talk",
+    forRecruiters: "I'm an aspiring software engineer and CS student with 4+ years of self-taught experience, now seeking a role to bring value to your team.",
+    forRecruitersAction: "Contact me",
+    forDevelopers: "While (I'm == hobyist) becomeDeveloper(true). My preferred languages are <Typescript | Java | Python> and my interests = [full stack, desktop, automation];",
+    forDevelopersAction: "Collaborate"
 };
 
 export const ABOUT_CONTENT = {
     paragraphs: [
-        "I’m a CIS student and an aspiring full stack developer, constantly experimenting with tools and frameworks to create impactful software solutions. My journey began in 2020, driven by a curiosity to build and a desire to solve real-world problems. Since then, I’ve tackled personal projects that merge functionality with creativity, refining my approach with each iteration.",
+        "I’m a CS student and an aspiring full stack developer, constantly experimenting with tools and frameworks to create impactful software solutions. My journey began in 2020, driven by a curiosity to build and a desire to solve real-world problems. Since then, I’ve tackled personal projects that merge functionality with creativity, refining my approach with each iteration.",
         "I focus on leveraging technologies like Next.js, TypeScript, and GraphQL to craft clean, scalable web applications. At the same time, I’m diving deeper into languages like Java and Python to broaden my backend capabilities and deepen my understanding of software design. For me, it’s all about continuous learning, refining systems, and delivering solutions that exceed expectations.",
     ],
 };
 
-export const DUSTI_PICTURE = "/assets/dj-profile-2.png";
+export const DUSTI_PICTURE = "/assets/me-001.jpg";
 
 export const LINKS = [
     { href: "https://blog.dustijohnson.com/", label: "Blog" },
