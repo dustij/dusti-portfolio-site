@@ -1,24 +1,11 @@
-import About from "@/components/About";
-import BlurBackground from "@/components/BlurBackground";
-import Contact from "@/components/Contact";
-import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
-import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
+import Hero from "~/components/hero";
+import Navbar from "~/components/nabar";
 
 export default function Home() {
-    return (
-        <>
-            <BlurBackground />
-            {/* <Navbar /> */}
-            <main className="antialiased overflow-x-hidden max-w-7xl mx-auto relative z-10">
-                <Navbar />
-                <Hero />
-                <Projects />
-                <Skills />
-                <About />
-                <Contact />
-            </main>
-        </>
-    );
+  return (
+    <div className="bg-white max-w-7xl mx-auto">
+      <Navbar />
+      <Hero />
+    </div>
+  );
 }
