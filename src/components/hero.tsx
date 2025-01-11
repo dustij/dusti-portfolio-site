@@ -8,33 +8,33 @@ import { DUSTI_PICTURE, HERO_CONTENT } from "~/constants";
 import { cn } from "~/lib/utils";
 
 export default function Hero() {
-  const textVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
+  // const textVariants = {
+  //   hidden: { opacity: 0, y: 50 },
+  //   visible: {
+  //     opacity: 1,
+  //     y: 0,
+  //     transition: { duration: 0.8, ease: "easeOut" },
+  //   },
+  // };
 
-  const containerVariants = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
+  // const containerVariants = {
+  //   hidden: { opacity: 1 },
+  //   visible: {
+  //     opacity: 1,
+  //     transition: {
+  //       staggerChildren: 0.3,
+  //     },
+  //   },
+  // };
 
-  const imageVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
+  // const imageVariants = {
+  //   hidden: { opacity: 0, y: -50 },
+  //   visible: {
+  //     opacity: 1,
+  //     y: 0,
+  //     transition: { duration: 0.8, ease: "easeOut" },
+  //   },
+  // };
 
   const [forWho, setForWho] = useState<
     "forAnyone" | "forRecruiters" | "forDevelopers"
