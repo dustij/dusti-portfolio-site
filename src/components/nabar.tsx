@@ -1,16 +1,16 @@
 "use client";
 
+import { LINKS } from "@/constants";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import Link from "next/link";
 import { useState } from "react";
 import { RiCloseFill, RiMenu3Fill } from "react-icons/ri";
-import { LINKS } from "~/constants";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50 max-w-7xl mx-auto">
+    <header className="absolute inset-x-0 top-0 z-50 mx-auto max-w-7xl">
       <nav
         aria-label="Global"
         className="flex items-center justify-between p-6 lg:px-8"
@@ -33,7 +33,7 @@ export default function Navbar() {
             <RiMenu3Fill aria-hidden="true" className="size-6" />
           </button>
         </div>
-        <div className="hidden flex-1 justify-end lg:flex space-x-6">
+        <div className="hidden flex-1 justify-end space-x-6 lg:flex">
           {LINKS.map((item) => (
             <Link
               key={item.label}

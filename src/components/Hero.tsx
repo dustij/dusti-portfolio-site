@@ -1,11 +1,11 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { DUSTI_PICTURE, HERO_CONTENT } from "@/constants";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import { Button } from "~/components/ui/button";
-import { DUSTI_PICTURE, HERO_CONTENT } from "~/constants";
-import { cn } from "~/lib/utils";
 
 export default function Hero() {
   const textVariants = {
@@ -82,7 +82,9 @@ export default function Hero() {
             {HERO_CONTENT[`${forWho}`]}
           </h1>
         </div>
-        <Button className="bg-my-green-500 text-black rounded-xl text-xl lg:text-2xl p-6 lg:p-8 hover:bg-my-green-500/90">{HERO_CONTENT[`${forWho}Action`]}</Button>
+        <Button className="bg-my-green-500 hover:bg-my-green-500/90 rounded-xl p-6 text-xl text-black lg:p-8 lg:text-2xl">
+          {HERO_CONTENT[`${forWho}Action`]}
+        </Button>
       </div>
       <div className="flex w-full justify-end p-6 sm:w-1/2 lg:px-8">
         <Image
