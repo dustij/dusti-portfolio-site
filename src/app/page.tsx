@@ -4,6 +4,7 @@ import { Container } from "~/components/Container";
 import { GitHubIcon, LinkedInIcon } from "~/components/SocialIcons";
 import { client } from "~/graphql/apollo";
 import { ArticleWithSlug, getAllArticles } from "~/graphql/queries";
+import { socialLinks } from "~/lib/constants";
 import { formatDate } from "~/lib/formatDate";
 
 // ==== SOCIAL LINK ==== //
@@ -38,7 +39,7 @@ function Article({ article }: { article: ArticleWithSlug }) {
   );
 }
 
-// ==== HOME COMPONENT ==== //
+// ==== HOME PAGE ==== //
 
 export default async function Home() {
   const _client = await client.query({
@@ -46,10 +47,10 @@ export default async function Home() {
     fetchPolicy: "no-cache", // TODO: explore caching options
   });
 
-  let articles = null;
+  let articles: ArticleWithSlug[] = [];
 
   if (_client) {
-    articles = _client?.data.blogPosts.slice(0, 4);
+    articles = _client?.data.blogPosts.slice(0, 3);
   } else {
     console.warn("Apollo client is undefined.");
   }
@@ -59,21 +60,21 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software designer, web developer, and CS student.
+            Software designer, web developer, and student.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             Hey there, I'm Dusti&mdash;a software engineer and computer science
-            student. Usually, I'm burning the midnight oil, working on a personal
-            project or diving into documentation.
+            student. Usually, I'm burning the midnight oil, working on a
+            personal project or diving deep into documentation.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
-              href="https://github.com/dustij"
+              href={socialLinks.gitHub}
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
             />
             <SocialLink
-              href="https://linkedin.com/in/dusti-johnson"
+              href={socialLinks.gitHub}
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
@@ -83,10 +84,17 @@ export default async function Home() {
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            <h1 className="text-xl">Recent articles</h1>
-            {articles?.map((article: ArticleWithSlug) => (
-              <Article key={article.urlSlug} article={article} />
-            ))}
+            <div className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40 -mb-16"/>
+            <h1 className="text-lg text-zinc-700 dark:text-zinc-200">
+              Recent articles
+            </h1>
+            {articles.length != 0 ? (
+              articles?.map((article: ArticleWithSlug) => (
+                <Article key={article.urlSlug} article={article} />
+              ))
+            ) : (
+              <p className="text-zinc-400 dark:text-zinc-500">Sorry, there's no articles yet...</p>
+            )}
           </div>
         </div>
       </Container>
