@@ -6,3 +6,7 @@ export const navLinks = [
   { text: "Projects", href: "/projects" },
   { text: "Contact", href: "/contact" },
 ];
+export const socialLinks = {
+  linkedIn: "https://linkedin.com/in/dusti-johnson",
+  gitHub: "https://github.com/dustij",
+};
