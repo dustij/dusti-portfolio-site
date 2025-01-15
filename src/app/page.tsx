@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Card } from "~/components/Card";
 import { Container } from "~/components/Container";
 import { GitHubIcon, LinkedInIcon } from "~/components/SocialIcons";
-import { client } from "~/graphql/apollo";
-import { ArticleWithSlug, getAllArticles } from "~/graphql/queries";
+import { fetchArticles } from "~/graphql/actions";
+import { ArticleWithSlug } from "~/graphql/queries";
 import { socialLinks } from "~/lib/constants";
 import { formatDate } from "~/lib/formatDate";
 
@@ -42,18 +42,7 @@ function Article({ article }: { article: ArticleWithSlug }) {
 // ==== HOME PAGE ==== //
 
 export default async function Home() {
-  const _client = await client.query({
-    query: getAllArticles,
-    fetchPolicy: "no-cache", // TODO: explore caching options
-  });
-
-  let articles: ArticleWithSlug[] = [];
-
-  if (_client) {
-    articles = _client?.data.blogPosts.slice(0, 3);
-  } else {
-    console.warn("Apollo client is undefined.");
-  }
+  const articles = await fetchArticles(0, 3);
 
   return (
     <>
@@ -86,7 +75,7 @@ export default async function Home() {
       <Container className="mt-12 md:mt-14">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            <div className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40 -mb-16"/>
+            <div className="-mb-16 mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40" />
             <h1 className="text-lg text-zinc-700 dark:text-zinc-200">
               Recent articles
             </h1>
@@ -95,7 +84,9 @@ export default async function Home() {
                 <Article key={article.urlSlug} article={article} />
               ))
             ) : (
-              <p className="text-zinc-400 dark:text-zinc-500">Sorry, there's no articles yet.</p>
+              <p className="text-zinc-400 dark:text-zinc-500">
+                Sorry, there's no articles yet.
+              </p>
             )}
           </div>
         </div>

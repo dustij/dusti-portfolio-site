@@ -10,6 +10,7 @@ const variantStyles = {
 
 type ButtonProps = {
   variant?: keyof typeof variantStyles;
+  icon?: React.ElementType;
 } & (
   | (React.ComponentPropsWithoutRef<"button"> & { href?: undefined })
   | React.ComponentPropsWithoutRef<typeof Link>
@@ -30,5 +31,35 @@ export function Button({
     <button className={className} {...props} />
   ) : (
     <Link className={className} {...props} />
+  );
+}
+
+export function ButtonIconLeft({
+  variant = "primary",
+  icon: Icon,
+  className,
+  children,
+  ...props
+}: ButtonProps) {
+  className = cn(
+    "inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none",
+    variantStyles[variant],
+    className,
+  );
+
+  const iconLeft = Icon ? (
+    <Icon aria-hidden="true" className="-ml-0.5 size-5" />
+  ) : null;
+
+  return typeof props.href === "undefined" ? (
+    <button className={className} {...props}>
+      {iconLeft}
+      {children}
+    </button>
+  ) : (
+    <Link className={className} {...props}>
+      {iconLeft}
+      {children}
+    </Link>
   );
 }
