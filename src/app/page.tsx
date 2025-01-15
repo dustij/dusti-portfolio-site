@@ -70,18 +70,20 @@ export default async function Home() {
           <div className="mt-6 flex gap-6">
             <SocialLink
               href={socialLinks.gitHub}
+              target="_blank"
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
             />
             <SocialLink
-              href={socialLinks.gitHub}
+              href={socialLinks.linkedIn}
+              target="_blank"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
           </div>
         </div>
       </Container>
-      <Container className="mt-24 md:mt-28">
+      <Container className="mt-12 md:mt-14">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
             <div className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40 -mb-16"/>
@@ -93,7 +95,7 @@ export default async function Home() {
                 <Article key={article.urlSlug} article={article} />
               ))
             ) : (
-              <p className="text-zinc-400 dark:text-zinc-500">Sorry, there's no articles yet...</p>
+              <p className="text-zinc-400 dark:text-zinc-500">Sorry, there's no articles yet.</p>
             )}
           </div>
         </div>
