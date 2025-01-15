@@ -23,6 +23,7 @@ function SocialLink({
     <li className={cn(className, "flex")}>
       <Link
         href={href}
+        target="_blank"
         className="hover:text-primary-500 dark:hover:text-primary-500 group flex text-sm font-medium text-zinc-800 transition dark:text-zinc-200"
       >
         <Icon className="group-hover:fill-primary-500 h-6 w-6 flex-none fill-zinc-500 transition" />
@@ -70,83 +71,92 @@ export default function About() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-balance text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            I'm Dusti Johnson. I live in Kansas, where I spend my days growing
+            I'm Dusti Johnson. I live in Kansas, where I spend my days studying
             and my nights coding.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I can remember, as kid, watching <i>Pee-wee's Big Adventure</i>,
-              when Pee-wee starts his morning routine by setting off a chain
-              reaction of events leading to his breakfast. This was the first
-              time I saw a Rube Goldberg machine, and I was hooked. I knew for a
-              fact I would become a mad scientist, like the dad from{" "}
-              <i>Honey, I Shrunk the Kids</i>. I wanted to make things, and I
-              was enthralled by technology. Years went by, and my dream of mad
-              science faded, but I I began feeling this innate pull towards
-              computers. I knew I could create things through code, and the
-              inner mad scientist whispered, "You can make whatever you want
-              here." It wasn't until I was 28 that I finally took the leap into
-              the world of code, and I never looked back.
+              I can remember, as a kid, watching <i>Pee-wee's Big Adventure</i>.
+              Pee-wee starts his morning with a Rube Goldberg machine that ends
+              with breakfast, and I was hooked. I knew for sure I’d grow up to
+              be a mad scientist&mdash;like the dad from{" "}
+              <i>Honey, I Shrunk the Kids</i>.
             </p>
             <p>
-              The year was 2017. I was pursuing a degree in finance {"("}sparked
-              by my discovery of currency trading in forex{")"}, and I had just
-              learned financial accounting. It was time to grow up and make
-              myself a budget, inspired by my newfound knowledge. Little did I
-              know, this would set me on a path to programming.
+              I wanted to make things! Technology fascinated me. But as the
+              years went by, my mad science dreams faded, replaced by a pull
+              toward computers.
             </p>
             <p>
-              As time went on, I looked for ways to improve my system. How could
-              I streamline this? Where could I automate processes? It was time
-              to learn to code. Since my budget was built in Excel, the first
-              place i naturally turned to was VBA. Cool&mdash;I have a form and
-              a button now. But this wasn't enough for me&mdash;I desired a
-              standalone, completely custom budget app.
+              When I discovered coding, the mad scientist in me whispered, "This
+              is it&mdash;you can make anything here." And at the ripe age of
+              28, I finally took the leap and started programming. I've never
+              looked back.
             </p>
             <p>
-              Every developer starts their journey by searching some variation
-              of, "Best first programming language to learn"&mdash;right? At
-              least, thats what I did, and I found Python. And so the journey
-              began. I was instantly addicted. First thing in the morning? Code
-              time, baby. Last thing at night? You guessed it&mdash;code time!
+              My journey began in 2017. I was studying finance (inspired by my
+              short-lived forex trading adventure) and had just learned
+              financial accounting. With this new knowledge, I figured it was
+              time to grow up and finally make a budget. Little did I know, this
+              would set me on a path to programming.
             </p>
             <p>
-              Today, I'm a undergrad studying computer science while working a
-              full-time job as a process tech making plastic cups. I've managed
-              to learn three languages so far: Python, TypeScript, and Java. At
-              night, I often stay up working on peronsal projects, ranging from
-              bots and automation scripts to full-stack web applications and
-              websites.I continue learning everything I can about programming,
-              with the goal of becoming a well-rounded, fully capable
-              developer&mdash;someone with the tools and skills to solve any
-              problem and create any product {"("}whether its mad science or
-              academic{")"}.
+              Over time, I looked for ways to improve my system. How could I
+              streamline it? Could I automate anything? It was time to finally
+              get serious about it and learn to code. My budget was built in
+              Excel, so naturally, I started with VBA. Cool&mdash;I had a form
+              and a button now. But it wasn't enough; I wanted a completely
+              custom, standalone budget app.
             </p>
             <p>
-              Daniel H. Pink, author of the book <i>Drive</i>, talks about
-              autotelic exeperiences, better known as the flow state. I remember
-              the first time i experienced this flow state: I sat down at my
-              computer one morning with my cofee, opened my IDE, and started
-              working. Next thing I remember, I looked up and said, "Whoa, it's
-              dark outside. What time is it?" The first twelve hours of the day
-              had disappeared. Then the next twelve hours vanished just as
-              quickly. I knew that if I could find flow this easily, this is was
-              my destiny. This qoute from the book prefectly describes my
-              experience every time.
+              Every new developer starts their journey by Googling, "What's the
+              best programming language for newbies"&mdash;right? At least,
+              that's what I did, and that's how I found Python. And so, in early
+              2020, the obsession began. Mornings? Code time. Nights?
+              Yeah&mdash;code time!
             </p>
-            <div className="relative pt-8 isolate">
-              <p className="absolute inset-0 text-9xl font-bold text-zinc-200 dark:text-zinc-800 font-serif">&#8220;</p>
-              <p className="relative z-50 pl-8">
-                <i>The challenge wasn't too easy. Nor was it too difficult. It was
-                a notch or two beyond his current abilities, which stretched the
-                body and mind in a way that made the effort itself the most
-                delicious reward. That balance produced a degree of focus and
-                satisfaction that easily surpassed other, more quotidian,
-                experiences. In flow, people lived so deeply in the moment, and
-                felt so utterly in control, that their sense of time, place, and
-                even self melted away.</i>
+            <p>
+              Today, I'm studying computer science and working full-time as a
+              technician. Over the past couple of years, I've learned Python,
+              TypeScript, and Java, along with front-end tools like React and
+              Next.js as well as back-end technologies such as SQL, REST APIs,
+              and GraphQL.
+            </p>
+            <p>
+              I spend my nights devoted to programming, focusing on
+              personal projects, from automation bots to full-stack web
+              applications. My goal is to become a well-rounded developer
+              capable of solving any problem (mad science optional).
+            </p>
+            <div className="border-t border-zinc-100 dark:border-zinc-700/40" />
+            <p>
+              Daniel H. Pink talks about the flow state in his book{" "}
+              <i>Drive.</i> I remember my first experience with it: one morning,
+              I sat down with my coffee, opened my IDE, and started coding. Next
+              thing I knew, it was dark outside. Whoa! Twelve hours had
+              vanished. Then the next twelve hours disappeared. I knew, right
+              then and there, programming was my calling. This quote perfectly
+              describes my experience.
+            </p>
+            <div className="relative isolate pt-8">
+              <p className="font-serif absolute inset-0 text-9xl font-bold text-zinc-200/60 dark:text-zinc-800">
+                &#8220;
               </p>
-              <p className="pl-8 pt-4 text-zinc-500">&mdash;{" "}Daniel H. Pink, from the book <i>Drive</i></p>
+              <p className="font-serif relative z-50 pl-8">
+                <i>
+                  The challenge wasn't too easy. Nor was it too difficult. It
+                  was a notch or two beyond his current abilities, which
+                  stretched the body and mind in a way that made the effort
+                  itself the most delicious reward. That balance produced a
+                  degree of focus and satisfaction that easily surpassed other,
+                  more quotidian, experiences. In flow, people lived so deeply
+                  in the moment, and felt so utterly in control, that their
+                  sense of time, place, and even self melted away.
+                </i>
+              </p>
+              <p className="font-serif pl-8 pt-4 text-zinc-500">
+                &mdash; Daniel H. Pink, from his book <i>Drive</i>
+              </p>
             </div>
           </div>
         </div>
