@@ -111,18 +111,22 @@ export default function About() {
             <p>
               Every new developer starts their journey by Googling, "What's the
               best programming language for newbies"&mdash;right? At least,
-              that's what I did, and that's how I found Python. And so the obsession
-              began. Mornings? Code time. Nights? Yeah&mdash;code time!
+              that's what I did, and that's how I found Python. And so, in early
+              2020, the obsession began. Mornings? Code time. Nights?
+              Yeah&mdash;code time!
             </p>
             <p>
               Today, I'm studying computer science and working full-time as a
-              process tech making plastic cups. I've learned Python, TypeScript,
-              and Java.
+              technician. Over the past couple of years, I've learned Python,
+              TypeScript, and Java, along with front-end tools like React and
+              Next.js as well as back-end technologies such as SQL, REST APIs,
+              and GraphQL.
             </p>
             <p>
-              At night, I work on personal projects, from automation bots to
-              full-stack web applications. My goal is to become a well-rounded
-              developer capable of solving any problem (mad science optional).
+              I spend my nights devoted to programming, focusing on
+              personal projects, from automation bots to full-stack web
+              applications. My goal is to become a well-rounded developer
+              capable of solving any problem (mad science optional).
             </p>
             <div className="border-t border-zinc-100 dark:border-zinc-700/40" />
             <p>
@@ -130,15 +134,15 @@ export default function About() {
               <i>Drive.</i> I remember my first experience with it: one morning,
               I sat down with my coffee, opened my IDE, and started coding. Next
               thing I knew, it was dark outside. Whoa! Twelve hours had
-              vanished. Then another twelve hours disappeared. I knew, right then
-              and there, programming was my calling. This quote perfectly
+              vanished. Then the next twelve hours disappeared. I knew, right
+              then and there, programming was my calling. This quote perfectly
               describes my experience.
             </p>
             <div className="relative isolate pt-8">
               <p className="font-serif absolute inset-0 text-9xl font-bold text-zinc-200/60 dark:text-zinc-800">
                 &#8220;
               </p>
-              <p className="relative z-50 pl-8 font-serif">
+              <p className="font-serif relative z-50 pl-8">
                 <i>
                   The challenge wasn't too easy. Nor was it too difficult. It
                   was a notch or two beyond his current abilities, which
@@ -150,7 +154,7 @@ export default function About() {
                   sense of time, place, and even self melted away.
                 </i>
               </p>
-              <p className="pl-8 pt-4 text-zinc-500 font-serif">
+              <p className="font-serif pl-8 pt-4 text-zinc-500">
                 &mdash; Daniel H. Pink, from his book <i>Drive</i>
               </p>
             </div>
