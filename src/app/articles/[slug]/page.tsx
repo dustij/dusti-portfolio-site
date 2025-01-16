@@ -6,12 +6,15 @@ import { Prose } from "~/components/Prose";
 import { fetchArticleBySlug } from "~/graphql/actions";
 import { formatDate } from "~/lib/formatDate";
 
+type Params = Promise<{ slug: string }>;
+
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Params;
 }): Promise<Metadata> {
-  const article = await fetchArticleBySlug((await params).slug);
+  const { slug } = await params;
+  const article = await fetchArticleBySlug(slug);
 
   if (!article) {
     return {
@@ -51,9 +54,10 @@ export async function generateMetadata({
 export default async function Article({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Params;
 }) {
-  const article = await fetchArticleBySlug((await params).slug);
+  const {slug} = await params;
+  const article = await fetchArticleBySlug(slug);
 
   if (!article) {
     notFound();
