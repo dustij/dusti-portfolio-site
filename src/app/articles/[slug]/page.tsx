@@ -51,6 +51,7 @@ export async function generateMetadata({
   };
 }
 
+// TODO: check out: https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 export default async function Article({ params }: { params: Params }) {
   const { slug } = await params;
   const article = await fetchArticleBySlug(slug);

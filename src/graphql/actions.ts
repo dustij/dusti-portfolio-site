@@ -9,6 +9,7 @@ import {
   getArticlesPaginated,
 } from "./queries";
 
+// TODO: look into: https://www.apollographql.com/docs/react/data/refetching
 export async function fetchArticles({
   start = 0,
   limit = ARTICLES_PER_PAGE,
