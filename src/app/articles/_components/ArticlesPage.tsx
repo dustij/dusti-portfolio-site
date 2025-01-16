@@ -70,21 +70,16 @@ function Article({ article }: { article: ArticleWithSlug }) {
   );
 }
 
-export default function ArticlesPage({
-  initialArticles,
-  totalCount,
-}: {
-  initialArticles: ArticleWithSlug[];
-  totalCount: number;
-}) {
+// TODO: Check out: https://www.apollographql.com/blog/how-to-use-apollo-client-with-next-js-13
+export default function ArticlesPage() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   const pageNumber = useMemo(() => searchParams.get("page"), [searchParams]);
 
-  const [articles, setArticles] = useState(initialArticles);
-  const [isMore, setIsMore] = useState(articles.length < totalCount);
+  const [articles, setArticles] = useState<ArticleWithSlug[]>([]);
+  const [isMore, setIsMore] = useState(false);
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -99,15 +94,13 @@ export default function ArticlesPage({
   useEffect(() => {
     let isMounted = true; // Flag to check if the component is still mounted
 
-    async function fetchArticlesForPage() {
+    async function fetchInitialArticles() {
       try {
-        const data = await fetchArticles({
-          start: articles.length,
-          multiplier: Number(pageNumber),
-        });
-        if (isMounted && data.articles) {
-          setArticles((prevArticles) => [...prevArticles, ...data.articles]);
-          setIsMore(articles.length + data.articles.length < totalCount);
+        const result = await fetchArticles({});
+
+        if (isMounted && result.articles) {
+          setArticles(result.articles);
+          setIsMore(articles.length + result.articles.length < result.total);
         }
       } catch (error) {
         if (isMounted) {
@@ -115,10 +108,30 @@ export default function ArticlesPage({
         }
       }
     }
-    if (!pageNumber) {
-      return setArticles(initialArticles);
+
+    async function fetchArticlesForPage() {
+      try {
+        const result = await fetchArticles({
+          start: articles.length,
+          multiplier: Number(pageNumber),
+        });
+
+        if (isMounted && result.articles) {
+          setArticles((prevArticles) => [...prevArticles, ...result.articles]);
+          setIsMore(articles.length + result.articles.length < result.total);
+        }
+      } catch (error) {
+        if (isMounted) {
+          console.error("Error fetching articles:", error);
+        }
+      }
     }
-    fetchArticlesForPage();
+
+    if (!pageNumber) {
+      fetchInitialArticles();
+    } else {
+      fetchArticlesForPage();
+    }
 
     return () => {
       isMounted = false; // Mark the component as unmounted
@@ -127,11 +140,11 @@ export default function ArticlesPage({
 
   async function handleLoadMore() {
     try {
-      const data = await fetchArticles({ start: articles.length });
+      const result = await fetchArticles({ start: articles.length });
 
-      if (data.articles) {
-        setArticles((prevArticles) => [...prevArticles, ...data.articles]);
-        setIsMore(articles.length + data.articles.length < totalCount);
+      if (result.articles) {
+        setArticles((prevArticles) => [...prevArticles, ...result.articles]);
+        setIsMore(articles.length + result.articles.length < result.total);
 
         const number = Number(pageNumber) + 1;
 
