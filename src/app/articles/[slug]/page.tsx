@@ -51,12 +51,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function Article({
-  params,
-}: {
-  params: Params;
-}) {
-  const {slug} = await params;
+export default async function Article({ params }: { params: Params }) {
+  const { slug } = await params;
   const article = await fetchArticleBySlug(slug);
 
   if (!article) {

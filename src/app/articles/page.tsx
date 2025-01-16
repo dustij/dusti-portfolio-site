@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import { fetchArticles } from "~/graphql/actions";
 import ArticlesPage from "./_components/ArticlesPage";
 
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
 export default async function Articles() {
   const data = await fetchArticles({});
   return (
-    <ArticlesPage initialArticles={data.articles} totalCount={data.total} />
+    <Suspense>
+      <ArticlesPage initialArticles={data.articles} totalCount={data.total} />
+    </Suspense>
   );
 }

@@ -20,8 +20,6 @@ export async function fetchArticles({
     fetchPolicy: "no-cache",
   });
 
-  console.log("mult= ", multiplier);
-
   return {
     articles: result?.data.blogPosts,
     total: result?.data.blogPosts_connection.pageInfo.total,
