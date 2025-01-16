@@ -12,12 +12,17 @@ export const getAllArticles = gql`
 `;
 
 export const getArticlesPaginated = gql`
-  query GetArticlesPaginated($pagination: PaginationArg){
+  query GetArticlesPaginated($pagination: PaginationArg) {
     blogPosts(pagination: $pagination, sort: ["updatedAt:desc"]) {
       title
       description
       updatedAt
       urlSlug
+    }
+    blogPosts_connection {
+      pageInfo {
+        total
+      }
     }
   }
 `;
