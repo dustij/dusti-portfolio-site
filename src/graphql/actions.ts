@@ -1,7 +1,12 @@
 "use server";
 
 import { client } from "./apollo";
-import { ArticleWithSlug, getArticlesPaginated } from "./queries";
+import {
+  ArticleWithContent,
+  ArticleWithSlug,
+  getArticleBySlug,
+  getArticlesPaginated,
+} from "./queries";
 
 export async function fetchArticles(
   start = 0,
@@ -17,4 +22,16 @@ export async function fetchArticles(
     articles: result?.data.blogPosts,
     total: result?.data.blogPosts_connection.pageInfo.total,
   };
+}
+
+export async function fetchArticleBySlug(
+  urlSlug: string,
+): Promise<ArticleWithContent> {
+  const result = await client.query({
+    query: getArticleBySlug,
+    variables: { urlSlug },
+    fetchPolicy: "no-cache",
+  });
+
+  return result?.data.blogPosts[0];
 }

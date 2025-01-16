@@ -69,7 +69,7 @@ function Article({ article }: { article: ArticleWithSlug }) {
   );
 }
 
-export default function ArticlePage({
+export default function ArticlesPage({
   initialArticles,
   totalCount,
 }: {
