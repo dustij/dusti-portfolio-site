@@ -8,7 +8,7 @@ import { fetchArticles } from "~/graphql/actions";
 import { ArticleWithSlug } from "~/graphql/queries";
 import { formatDate } from "~/lib/formatDate";
 
-// ==== ICON ==== //
+// ==== ICONS ==== //
 
 function ChevronDownIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -16,7 +16,21 @@ function ChevronDownIcon(props: React.ComponentPropsWithoutRef<"svg">) {
       <path
         d="M1.75 1.75 4 4.25l2.25-2.5"
         fill="none"
-        strokeWidth="1.5"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function DashIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+  return (
+    <svg viewBox="0 0 8 6" aria-hidden="true" {...props}>
+      <path
+        d="M1.75 3 6.25 3"
+        fill="none"
+        strokeWidth="1"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -57,19 +71,24 @@ function Article({ article }: { article: ArticleWithSlug }) {
 
 export default function ArticlePage({
   initialArticles,
+  totalCount,
 }: {
   initialArticles: ArticleWithSlug[];
+  totalCount: number;
 }) {
   const [articles, setArticles] = useState(initialArticles);
+  const [isMore, setIsMore] = useState(articles.length < totalCount);
+
   // TODO: implement loading state
   // TODO: implement url query string, for exmample: /blog?tag=all-tags&page=5
 
   async function handleLoadMore() {
     try {
-      const newArticles = await fetchArticles(articles.length, 2);
+      const data = await fetchArticles(articles.length, 2);
 
-      if (newArticles) {
-        setArticles((prevArticles) => [...prevArticles, ...newArticles]);
+      if (data.articles) {
+        setArticles((prevArticles) => [...prevArticles, ...data.articles]);
+        setIsMore(articles.length + data.articles.length < totalCount);
       } else {
         console.warn(
           "Failed to fetch more articles. Apollo client may be undefined.",
@@ -100,12 +119,13 @@ export default function ArticlePage({
       </div>
       <div className="mt-16 flex justify-center sm:mt-20">
         <ButtonIconLeft
-          variant="secondary"
-          className="over:stroke-zinc-700 stroke-zinc-500 dark:hover:stroke-zinc-400"
-          icon={ChevronDownIcon}
+          variant={"secondary"}
+          disabled={!isMore}
+          className=""
+          icon={isMore ? ChevronDownIcon : DashIcon}
           onClick={handleLoadMore}
         >
-          Load more
+          {isMore ? "Load more" : "No more"}
         </ButtonIconLeft>
       </div>
     </SimpleLayout>

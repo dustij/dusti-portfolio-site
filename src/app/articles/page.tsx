@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Articles() {
-  const articles = await fetchArticles(0, 2);
-
-  return <ArticlePage initialArticles={articles} />;
+  const data = await fetchArticles(0, 2);
+  return (
+    <ArticlePage initialArticles={data.articles} totalCount={data.total} />
+  );
 }

@@ -6,12 +6,15 @@ import { ArticleWithSlug, getArticlesPaginated } from "./queries";
 export async function fetchArticles(
   start = 0,
   limit = 8,
-): Promise<ArticleWithSlug[]> {
+): Promise<{ articles: ArticleWithSlug[]; total: number }> {
   const result = await client.query({
     query: getArticlesPaginated,
     variables: { pagination: { start, limit } },
     fetchPolicy: "no-cache",
   });
 
-  return result?.data.blogPosts;
+  return {
+    articles: result?.data.blogPosts,
+    total: result?.data.blogPosts_connection.pageInfo.total,
+  };
 }
