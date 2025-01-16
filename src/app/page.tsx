@@ -42,7 +42,7 @@ function Article({ article }: { article: ArticleWithSlug }) {
 // ==== HOME PAGE ==== //
 
 export default async function Home() {
-  const articles = (await fetchArticles(0, 3)).articles;
+  const articles = (await fetchArticles({limit: 3})).articles;
 
   return (
     <>

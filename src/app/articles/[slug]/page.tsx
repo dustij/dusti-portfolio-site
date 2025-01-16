@@ -11,7 +11,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const article = await fetchArticleBySlug(params.slug);
+  const article = await fetchArticleBySlug((await params).slug);
 
   if (!article) {
     return {
@@ -28,7 +28,7 @@ export async function generateMetadata({
       description: article.description,
       type: "article",
       publishedTime: article.updatedAt,
-      url: `https://dustijohnson.com/articles/${params.slug}`,
+      url: `https://dustijohnson.com/articles/${(await params).slug}`,
       // images: [
       //   {
       //     url: "https://yourwebsite.com/path-to-image.jpg",

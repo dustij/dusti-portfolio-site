@@ -1,5 +1,6 @@
 "use server";
 
+import { ARTICLES_PER_PAGE } from "~/lib/constants";
 import { client } from "./apollo";
 import {
   ArticleWithContent,
@@ -8,15 +9,18 @@ import {
   getArticlesPaginated,
 } from "./queries";
 
-export async function fetchArticles(
+export async function fetchArticles({
   start = 0,
-  limit = 8,
-): Promise<{ articles: ArticleWithSlug[]; total: number }> {
+  limit = ARTICLES_PER_PAGE,
+  multiplier = 1,
+}): Promise<{ articles: ArticleWithSlug[]; total: number }> {
   const result = await client.query({
     query: getArticlesPaginated,
-    variables: { pagination: { start, limit } },
+    variables: { pagination: { start, limit: limit * multiplier } },
     fetchPolicy: "no-cache",
   });
+
+  console.log("mult= ", multiplier);
 
   return {
     articles: result?.data.blogPosts,

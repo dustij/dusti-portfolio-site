@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { ButtonIconLeft } from "~/components/Button";
 import { Card } from "~/components/Card";
 import { SimpleLayout } from "~/components/SimpleLayout";
@@ -76,19 +77,68 @@ export default function ArticlesPage({
   initialArticles: ArticleWithSlug[];
   totalCount: number;
 }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const pageNumber = useMemo(() => searchParams.get("page"), [searchParams]);
+
   const [articles, setArticles] = useState(initialArticles);
   const [isMore, setIsMore] = useState(articles.length < totalCount);
 
-  // TODO: implement loading state
-  // TODO: implement url query string, for exmample: /blog?tag=all-tags&page=5
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(name, value);
+
+      return params.toString();
+    },
+    [searchParams],
+  );
+
+  useEffect(() => {
+    let isMounted = true; // Flag to check if the component is still mounted
+
+    async function fetchArticlesForPage() {
+      try {
+        const data = await fetchArticles({
+          start: articles.length,
+          multiplier: Number(pageNumber),
+        });
+        if (isMounted && data.articles) {
+          setArticles((prevArticles) => [...prevArticles, ...data.articles]);
+          setIsMore(articles.length + data.articles.length < totalCount);
+        }
+      } catch (error) {
+        if (isMounted) {
+          console.error("Error fetching articles:", error);
+        }
+      }
+    }
+    if (!pageNumber) {
+      return setArticles(initialArticles);
+    }
+    fetchArticlesForPage();
+
+    return () => {
+      isMounted = false; // Mark the component as unmounted
+    };
+  }, []);
 
   async function handleLoadMore() {
     try {
-      const data = await fetchArticles(articles.length, 2);
+      const data = await fetchArticles({ start: articles.length });
 
       if (data.articles) {
         setArticles((prevArticles) => [...prevArticles, ...data.articles]);
         setIsMore(articles.length + data.articles.length < totalCount);
+
+        const number = Number(pageNumber) + 1;
+
+        router.push(
+          pathname + "?" + createQueryString("page", number.toString()),
+          { scroll: false },
+        );
       } else {
         console.warn(
           "Failed to fetch more articles. Apollo client may be undefined.",
