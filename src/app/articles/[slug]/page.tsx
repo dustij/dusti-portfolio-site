@@ -3,10 +3,15 @@ import { notFound } from "next/navigation";
 import BackButton from "~/components/BackButton";
 import { Container } from "~/components/Container";
 import { Prose } from "~/components/Prose";
-import { fetchArticleBySlug } from "~/graphql/actions";
+import { fetchAllArticles, fetchArticleBySlug } from "~/graphql/actions";
 import { formatDate } from "~/lib/formatDate";
 
 type Params = Promise<{ slug: string }>;
+
+export async function generateStaticParams() {
+  const articles = await fetchAllArticles();
+  return articles.map((article) => ({ slug: article.urlSlug }));
+}
 
 export async function generateMetadata({
   params,

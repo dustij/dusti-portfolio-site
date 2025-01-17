@@ -1,7 +1,44 @@
 import { Metadata } from "next";
-import { Suspense } from "react";
+import { Card } from "~/components/Card";
+import { SimpleLayout } from "~/components/SimpleLayout";
 import { fetchArticles } from "~/graphql/actions";
-import ArticlesPage from "./_components/ArticlesPage";
+import { ArticleWithSlug } from "~/graphql/queries";
+import { ARTICLES_PER_PAGE } from "~/lib/constants";
+import { formatDate } from "~/lib/formatDate";
+import PaginationControl from "./_components/PaginationControl";
+
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+
+// ==== ARTICLE ==== //
+
+function Article({ article }: { article: ArticleWithSlug }) {
+  return (
+    <article className="md:grid md:grid-cols-4 md:items-baseline">
+      <Card className="md:col-span-3">
+        <Card.Title href={`/articles/${article.urlSlug}`}>
+          {article.title}
+        </Card.Title>
+        <Card.Eyebrow
+          as="time"
+          dateTime={article.updatedAt}
+          className="md:hidden"
+          decorate
+        >
+          {formatDate(article.updatedAt)}
+        </Card.Eyebrow>
+        <Card.Description>{article.description}</Card.Description>
+        <Card.Cta>Read article</Card.Cta>
+      </Card>
+      <Card.Eyebrow
+        as="time"
+        dateTime={article.updatedAt}
+        className="mt-1 hidden md:block"
+      >
+        {formatDate(article.updatedAt)}
+      </Card.Eyebrow>
+    </article>
+  );
+}
 
 // ==== ARTICLES PAGE ==== //
 
@@ -11,28 +48,38 @@ export const metadata: Metadata = {
     "All of my long-form thoughts on programming, computer science, life, and more, collected in chronological order.",
 };
 
-/* TODO:
-If you want to retain static generation for SEO and performance but also update your content automatically, 
-set up a webhook in Strapi to trigger a front-end rebuild upon content changes.
+export default async function Articles(props: { searchParams: SearchParams }) {
+  const searchParams = await props.searchParams;
+  const page = Number(searchParams.page) ?? 1;
+  const perPage = Number(searchParams.per_page) ?? ARTICLES_PER_PAGE;
 
-Steps:
+  let articles: ArticleWithSlug[] = [];
+  let total = 0;
+  const start = articles.length;
+  const limit = page * perPage;
+  ({ articles, total } = await fetchArticles({ start, limit }));
 
-In your Strapi admin panel, set up a webhook to call your deployment provider (e.g., Vercel, Netlify) when an article is added or updated.
-Configure the webhook to point to your deployment API endpoint (e.g., Vercel's Deploy Hook).
-When Strapi content changes, it will automatically trigger a rebuild of your static front end.
-Pros:
-
-Maintains the benefits of static generation.
-Updates are automated.
-Cons:
-
-Requires redeployment (triggered by the webhook).
-*/
-
-export default async function Articles() {
   return (
-    <Suspense>
-      <ArticlesPage />
-    </Suspense>
+    <SimpleLayout
+      title="Writing on programming, computer science, and life in general."
+      intro="All of my long-form thoughts on programming, computer science, life, and more, collected in chronological order."
+    >
+      <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
+        <div className="flex max-w-3xl flex-col space-y-16">
+          {articles.length != 0 ? (
+            articles.map((article) => (
+              <Article key={article.urlSlug} article={article} />
+            ))
+          ) : (
+            <p className="text-zinc-400 dark:text-zinc-500">
+              Sorry, there's no articles yet.
+            </p>
+          )}
+        </div>
+      </div>
+      <div className="mt-16 flex justify-center sm:mt-20">
+        <PaginationControl total={total} />
+      </div>
+    </SimpleLayout>
   );
 }

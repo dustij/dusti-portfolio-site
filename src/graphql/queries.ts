@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
-export const getAllArticles = gql`
-  query GetAllPosts {
+export const GET_ALL_ARTICLES = gql`
+  query GetAllArticles {
     blogPosts(sort: ["updatedAt:desc"]) {
       title
       description
@@ -11,8 +11,16 @@ export const getAllArticles = gql`
   }
 `;
 
-export const getArticlesPaginated = gql`
-  query GetArticlesPaginated($pagination: PaginationArg) {
+export const GET_ALL_SLUGS = gql`
+  query GetAllSlugs {
+    blogPosts {
+      urlSlug
+    }
+  }
+`;
+
+export const GET_ARTICLES_PAGINATION = gql`
+  query GetArticlesPagination($pagination: PaginationArg) {
     blogPosts(pagination: $pagination, sort: ["updatedAt:desc"]) {
       title
       description
@@ -27,8 +35,8 @@ export const getArticlesPaginated = gql`
   }
 `;
 
-export const getArticleBySlug = gql`
-  query GetSinglePost($urlSlug: String!) {
+export const GET_ARTICLE_BY_SLUG = gql`
+  query GetArticleBySlug($urlSlug: String!) {
     blogPosts(filters: { urlSlug: { eq: $urlSlug } }) {
       title
       description
