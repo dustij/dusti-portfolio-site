@@ -14,4 +14,4 @@ export const socialLinks = {
   gitHub: "https://github.com/dustij",
 };
 
-export const ARTICLES_PER_PAGE = 2;
+export const ARTICLES_PER_PAGE = 1;
