@@ -77,56 +77,61 @@ export default function About() {
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
               I can remember, as a kid, watching <i>Pee-wee's Big Adventure</i>.
-              Pee-wee starts his morning with a Rube Goldberg machine that ends
-              with breakfast, and I was hooked. I knew for sure I’d grow up to
-              be a mad scientist&mdash;like the dad from{" "}
-              <i>Honey, I Shrunk the Kids</i>.
+              Pee-wee starts his morning by flipping on a fan, setting off a
+              chain reaction of ludicrous events ending with breakfast being
+              made. That was the first time witnessing a Rube Goldberg machine,
+              and I was hooked. I knew for sure I’d grow up to be a mad
+              scientist&mdash;like the dad from <i>Honey, I Shrunk the Kids</i>.
             </p>
             <p>
-              I wanted to make things! Technology fascinated me. But as the
-              years went by, my mad science dreams faded, replaced by a pull
-              toward computers.
+              I wanted to make things! Plain and simple. Technology fascinated
+              me. But as I grew older, my mad science dreams faded. Yet, a new
+              dream was taking root, and it had something to do with computers.
             </p>
             <p>
-              When I discovered coding, the mad scientist in me whispered, "This
-              is it&mdash;you can make anything here." And at the ripe age of
-              28, I finally took the leap and started programming. I've never
-              looked back.
+              When I discovered coding, that inner mad scientist whispered to
+              me, "This is it&mdash;you can make anything you want here." And at
+              the ripe age of 28, I finally took the leap and started
+              programming, and I've never looked back.
             </p>
+            <h3 className="text-xl font-semibold">The Beginning</h3>
             <p>
               My journey began in 2017. I was studying finance (inspired by my
-              short-lived forex trading adventure) and had just learned
+              short-lived forex trading adventure) and I had just learned
               financial accounting. With this new knowledge, I figured it was
-              time to grow up and finally make a budget. Little did I know, this
+              time to finally grow up and make a budget. Little did I know, this
               would set me on a path to programming.
             </p>
             <p>
               Over time, I looked for ways to improve my system. How could I
-              streamline it? Could I automate anything? It was time to finally
-              get serious about it and learn to code. My budget was built in
-              Excel, so naturally, I started with VBA. Cool&mdash;I had a form
-              and a button now. But it wasn't enough; I wanted a completely
-              custom, standalone budget app.
+              streamline it? Could I automate anything? It was time to get
+              serious. It was time to learn to code. My budget was built in
+              Excel, so naturally, I turned to VBA first. Cool&mdash;now I had a
+              form and a button. But it wasn't enough; I wanted more. What I
+              wanted was a completely custom, standalone budget app.
             </p>
             <p>
               Every new developer starts their journey by Googling, "What's the
-              best programming language for newbies"&mdash;right? At least,
-              that's what I did, and that's how I found Python. And so, in early
-              2020, the obsession began. Mornings? Code time. Nights?
-              Yeah&mdash;code time!
+              best programming language for beginners"&mdash;right? At least,
+              that's what I did, and that's when I found Python. So, in early
+              2020, my obsession began. Mornings? Codin' time. Nights?
+              Yeah&mdash;I'm coding!
+            </p>
+            <h3 className="text-xl font-semibold">The Now</h3>
+            <p>
+              Fast forward to today. I'm studying computer science and working
+              full-time (not as a programmer,
+              <span className="text-xs">
+                <i> yet</i>
+              </span>
+              ). Over the past couple of years, I've learned Python, TypeScript,
+              and Java, along with React and Next.js.
             </p>
             <p>
-              Today, I'm studying computer science and working full-time as a
-              technician. Over the past couple of years, I've learned Python,
-              TypeScript, and Java, along with front-end tools like React and
-              Next.js as well as back-end technologies such as SQL, REST APIs,
-              and GraphQL.
-            </p>
-            <p>
-              I spend my nights devoted to programming, focusing on
-              personal projects, from automation bots to full-stack web
-              applications. My goal is to become a well-rounded developer
-              capable of solving any problem (mad science optional).
+              I spend my nights devoted to programming, focusing on personal
+              projects, from automation bots to full-stack web apps. My goal is
+              to, some day soon, become a well-rounded developer capable of
+              solving any problem (mad science optional).
             </p>
             <div className="border-t border-zinc-100 dark:border-zinc-700/40" />
             <p>
