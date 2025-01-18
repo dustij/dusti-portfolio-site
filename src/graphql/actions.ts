@@ -21,6 +21,7 @@ export async function fetchArticles({
   const result = await client.query({
     query: GET_ARTICLES_PAGINATION,
     variables: { pagination: { start, limit } },
+    fetchPolicy: "no-cache",
   });
 
   return {
@@ -35,6 +36,7 @@ export async function fetchArticleBySlug(
   const result = await client.query({
     query: GET_ARTICLE_BY_SLUG,
     variables: { urlSlug },
+    fetchPolicy: "no-cache",
   });
   return result?.data.blogPosts[0];
 }
@@ -42,6 +44,7 @@ export async function fetchArticleBySlug(
 export async function fetchAllArticles(): Promise<ArticleWithSlug[]> {
   const result = await client.query({
     query: GET_ALL_ARTICLES,
+    fetchPolicy: "no-cache",
   });
 
   return result?.data.blogPosts;
@@ -50,6 +53,7 @@ export async function fetchAllArticles(): Promise<ArticleWithSlug[]> {
 export async function fetchAllSlugs(): Promise<ArticleWithSlug[]> {
   const result = await client.query({
     query: GET_ALL_SLUGS,
+    fetchPolicy: "no-cache",
   });
   return result?.data.blogPosts;
 }
