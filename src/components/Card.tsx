@@ -26,7 +26,7 @@ export function Card<T extends React.ElementType = "div">({
 
   return (
     <Component
-      className={cn(className, "group relative flex flex-col items-start")}
+      className={cn("group relative flex flex-col items-start", className)}
     >
       {children}
     </Component>
@@ -104,8 +104,8 @@ Card.Eyebrow = function CardEyebrow<T extends React.ElementType = "p">({
   return (
     <Component
       className={cn(
-        className,
         "relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500",
+        className,
         decorate && "pl-3.5",
       )}
       {...props}

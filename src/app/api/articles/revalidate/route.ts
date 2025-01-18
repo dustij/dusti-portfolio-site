@@ -14,7 +14,6 @@ export async function POST(request: NextRequest) {
     let payload;
     try {
       payload = await request.json();
-      console.log(payload);
     } catch (error) {
       console.error("Error parsing JSON:", error);
       return NextResponse.json(
@@ -33,6 +32,7 @@ export async function POST(request: NextRequest) {
     }
 
     revalidatePath(`/articles/${urlSlug}`);
+    revalidatePath(`/`);
 
     return NextResponse.json({ revalidated: true });
   } catch (error) {
