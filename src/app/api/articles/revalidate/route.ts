@@ -11,18 +11,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Ensure the request has a body
-    if (!request.body) {
-      return NextResponse.json(
-        { error: "Request body is missing" },
-        { status: 400 },
-      );
-    }
-
-    // Parse the request body to get the article slug
-    let body;
+    let payload;
     try {
-      body = await request.json();
+      payload = await request.json();
+      console.log(payload);
     } catch (error) {
       console.error("Error parsing JSON:", error);
       return NextResponse.json(
@@ -31,18 +23,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { slug } = body;
+    const { urlSlug } = payload.entry;
 
-    if (!slug) {
+    if (!urlSlug) {
       return NextResponse.json(
-        { error: "Missing 'slug' in request body" },
+        { error: "Missing 'urlSlug' in request body" },
         { status: 400 },
       );
     }
 
-    // Revalidate the blog listing page and the specific article page
-    revalidatePath("/articles");
-    revalidatePath(`/articles/${slug}`);
+    revalidatePath(`/articles/${urlSlug}`);
 
     return NextResponse.json({ revalidated: true });
   } catch (error) {
