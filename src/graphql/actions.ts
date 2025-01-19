@@ -2,9 +2,10 @@
 
 import "server-only";
 
-import { ARTICLES_PER_PAGE } from "~/lib/constants";
+import { DEFAULT_ARTICLES_PER_PAGE } from "~/lib/constants";
 import { client } from "./apollo";
 import {
+  ArticleSlug,
   ArticleWithContent,
   ArticleWithSlug,
   GET_ALL_ARTICLES,
@@ -16,7 +17,7 @@ import {
 // TODO: look into: https://www.apollographql.com/docs/react/data/refetching
 export async function fetchArticles({
   start = 0,
-  limit = ARTICLES_PER_PAGE,
+  limit = DEFAULT_ARTICLES_PER_PAGE,
 }): Promise<{ articles: ArticleWithSlug[]; total: number }> {
   const result = await client.query({
     query: GET_ARTICLES_PAGINATION,
@@ -50,7 +51,7 @@ export async function fetchAllArticles(): Promise<ArticleWithSlug[]> {
   return result?.data.blogPosts;
 }
 
-export async function fetchAllSlugs(): Promise<ArticleWithSlug[]> {
+export async function fetchAllSlugs(): Promise<ArticleSlug[]> {
   const result = await client.query({
     query: GET_ALL_SLUGS,
     fetchPolicy: "no-cache",

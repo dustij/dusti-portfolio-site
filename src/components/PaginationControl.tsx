@@ -3,7 +3,6 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 import { ButtonIconLeft } from "~/components/Button";
-import { ARTICLES_PER_PAGE } from "~/lib/constants";
 
 // ==== ICONS ==== //
 
@@ -37,13 +36,19 @@ function DashIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 
 // ==== PAGINATION CONTROL ==== //
 
-export default function PaginationControl({ total }: { total: number }) {
+export function PaginationControl({
+  total,
+  defaultPerPage,
+}: {
+  total: number;
+  defaultPerPage: number;
+}) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
   const page = Number(searchParams.get("page") ?? 1);
-  const perPage = Number(searchParams.get("per_page") ?? ARTICLES_PER_PAGE);
+  const perPage = Number(searchParams.get("per_page") ?? defaultPerPage);
 
   const isMore = page * perPage < total;
 

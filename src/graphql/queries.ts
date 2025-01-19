@@ -46,6 +46,10 @@ export const GET_ARTICLE_BY_SLUG = gql`
   }
 `;
 
+export interface ArticleSlug {
+  urlSlug: string;
+}
+
 export interface Article {
   title: string;
   description: string;

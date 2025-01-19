@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 import { Card } from "~/components/Card";
+import { PaginationControl } from "~/components/PaginationControl";
 import { SimpleLayout } from "~/components/SimpleLayout";
 import { fetchArticles } from "~/graphql/actions";
 import { ArticleWithSlug } from "~/graphql/queries";
-import { ARTICLES_PER_PAGE } from "~/lib/constants";
+import { DEFAULT_ARTICLES_PER_PAGE } from "~/lib/constants";
 import { formatDate } from "~/lib/formatDate";
-import PaginationControl from "./_components/PaginationControl";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 export default async function Articles(props: { searchParams: SearchParams }) {
   const searchParams = await props.searchParams;
   const page = Number(searchParams.page) ?? 1;
-  const perPage = Number(searchParams.per_page) ?? ARTICLES_PER_PAGE;
+  const perPage = Number(searchParams.per_page) ?? DEFAULT_ARTICLES_PER_PAGE;
 
   let articles: ArticleWithSlug[] = [];
   let total = 0;
@@ -78,7 +78,10 @@ export default async function Articles(props: { searchParams: SearchParams }) {
         </div>
       </div>
       <div className="mt-16 flex justify-center sm:mt-20">
-        <PaginationControl total={total} />
+        <PaginationControl
+          total={total}
+          defaultPerPage={DEFAULT_ARTICLES_PER_PAGE}
+        />
       </div>
     </SimpleLayout>
   );
