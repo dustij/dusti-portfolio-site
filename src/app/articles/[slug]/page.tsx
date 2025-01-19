@@ -5,12 +5,17 @@ import { Container } from "~/components/Container";
 import { Prose } from "~/components/Prose";
 import { fetchAllArticles, fetchArticleBySlug } from "~/graphql/actions";
 import { formatDate } from "~/lib/formatDate";
+import { exportSlugsJson } from "~/lib/slugs-management";
 
 type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
   const articles = await fetchAllArticles();
-  return articles.map((article) => ({ slug: article.urlSlug }));
+  const staticParams = articles.map((article) => ({
+    slug: article.urlSlug,
+  }));
+  exportSlugsJson(staticParams);
+  return staticParams;
 }
 
 export async function generateMetadata({
