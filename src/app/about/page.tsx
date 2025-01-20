@@ -64,8 +64,6 @@ export default function About() {
               alt=""
               sizes="(min-width: 1024px) 32rem, 20rem"
               className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-              width={2050}
-              height={2050}
             />
           </div>
         </div>
@@ -77,11 +75,11 @@ export default function About() {
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
               I can remember, as a kid, watching <i>Pee-wee's Big Adventure</i>.
-              Pee-wee starts his morning by flipping on a fan, setting off a
-              chain reaction of ludicrous events ending with breakfast being
-              made. That was the first time witnessing a Rube Goldberg machine,
-              and I was hooked. I knew for sure I’d grow up to be a mad
-              scientist&mdash;like the dad from <i>Honey, I Shrunk the Kids</i>.
+              Pee-wee starts his morning by flipping on a fan, which set off a
+              chain reaction ending in breakfast. That was the first time
+              witnessing a Rube Goldberg machine, and I was hooked. I knew for
+              sure I’d grow up to be a mad scientist&mdash;like the dad from{" "}
+              <i>Honey, I Shrunk the Kids</i>.
             </p>
             <p>
               I wanted to make things! Plain and simple. Technology fascinated
@@ -90,7 +88,7 @@ export default function About() {
             </p>
             <p>
               When I discovered coding, that inner mad scientist whispered to
-              me, "This is it&mdash;you can make anything you want here." And at
+              me, "This is it&mdash;you can make anything you want here." Thus, at
               the ripe age of 28, I finally took the leap and started
               programming, and I've never looked back.
             </p>
@@ -125,7 +123,7 @@ export default function About() {
                 <i> yet</i>
               </span>
               ). Over the past couple of years, I've learned Python, TypeScript,
-              and Java, along with React and Next.js.
+              and Java, along with some React and Next.js.
             </p>
             <p>
               I spend my nights devoted to programming, focusing on personal

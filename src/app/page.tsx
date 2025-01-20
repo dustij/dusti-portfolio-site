@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "~/components/Button";
 import { Card } from "~/components/Card";
 import { Container } from "~/components/Container";
 import { GitHubIcon, LinkedInIcon } from "~/components/SocialIcons";
@@ -77,7 +78,7 @@ export default async function Home() {
           <div className="flex flex-col gap-16">
             <div className="-mb-16 mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40" />
             <h1 className="text-lg text-zinc-700 dark:text-zinc-200">
-              Recent articles
+              Recent Articles
             </h1>
             {articles.length != 0 ? (
               articles?.map((article: ArticleWithSlug) => (
@@ -85,9 +86,10 @@ export default async function Home() {
               ))
             ) : (
               <p className="text-zinc-400 dark:text-zinc-500">
-                Sorry, there's no articles yet.
+                Sorry, I haven't written anything yet.
               </p>
             )}
+            <Link href="/articles" className="text-zinc-600 dark:text-zinc-400 underline">Read more</Link>
           </div>
         </div>
       </Container>

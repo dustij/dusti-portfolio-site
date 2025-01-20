@@ -50,8 +50,10 @@ export const metadata: Metadata = {
 
 export default async function Articles(props: { searchParams: SearchParams }) {
   const searchParams = await props.searchParams;
-  const page = Number(searchParams.page) ?? 1;
-  const perPage = Number(searchParams.per_page) ?? DEFAULT_ARTICLES_PER_PAGE;
+  const page = Number(searchParams.page ?? 1);
+  const perPage = Number(searchParams.per_page ?? DEFAULT_ARTICLES_PER_PAGE);
+
+  console.log("perpage", perPage)
 
   let articles: ArticleWithSlug[] = [];
   let total = 0;
