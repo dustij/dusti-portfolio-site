@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { navLinks } from "~/lib/constants";
 import { ContainerInner, ContainerOuter } from "~/components/Container";
+import { navLinks } from "~/lib/constants";
 
 function NavLink({
   href,
@@ -12,7 +12,7 @@ function NavLink({
   return (
     <Link
       href={href}
-      className="transition hover:text-primary-500 dark:hover:text-primary-400"
+      className="hover:text-primary-500 dark:hover:text-primary-400 transition"
     >
       {children}
     </Link>

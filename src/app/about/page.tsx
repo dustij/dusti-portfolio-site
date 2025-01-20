@@ -64,8 +64,6 @@ export default function About() {
               alt=""
               sizes="(min-width: 1024px) 32rem, 20rem"
               className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-              width={2050}
-              height={2050}
             />
           </div>
         </div>
@@ -77,11 +75,11 @@ export default function About() {
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
               I can remember, as a kid, watching <i>Pee-wee's Big Adventure</i>.
-              Pee-wee starts his morning by flipping on a fan, setting off a
-              chain reaction of ludicrous events ending with breakfast being
-              made. That was the first time witnessing a Rube Goldberg machine,
-              and I was hooked. I knew for sure I’d grow up to be a mad
-              scientist&mdash;like the dad from <i>Honey, I Shrunk the Kids</i>.
+              Pee-wee starts his morning by flipping on a fan, which set off a
+              chain reaction ending in breakfast. That was the first time
+              witnessing a Rube Goldberg machine, and I was hooked. I knew for
+              sure I’d grow up to be a mad scientist&mdash;like the dad from{" "}
+              <i>Honey, I Shrunk the Kids</i>.
             </p>
             <p>
               I wanted to make things! Plain and simple. Technology fascinated
@@ -90,8 +88,8 @@ export default function About() {
             </p>
             <p>
               When I discovered coding, that inner mad scientist whispered to
-              me, "This is it&mdash;you can make anything you want here." And at
-              the ripe age of 28, I finally took the leap and started
+              me, "This is it&mdash;you can make anything you want here." Thus,
+              at the ripe age of 28, I finally took the leap and started
               programming, and I've never looked back.
             </p>
             <h3 className="text-xl font-semibold">The Beginning</h3>
@@ -105,19 +103,20 @@ export default function About() {
             <p>
               Over time, I looked for ways to improve my system. How could I
               streamline it? Could I automate anything? It was time to get
-              serious. It was time to learn to code. My budget was built in
-              Excel, so naturally, I turned to VBA first. Cool&mdash;now I had a
-              form and a button. But it wasn't enough; I wanted more. What I
-              wanted was a completely custom, standalone budget app.
+              serious. It was time to learn how to code. My budget system was
+              built in Excel, so naturally, I turned to VBA first.
+              Cool&mdash;now I had a form and a button. But it wasn't enough; I
+              wanted more. What I wanted was a completely custom, standalone
+              budgeting app.
             </p>
             <p>
               Every new developer starts their journey by Googling, "What's the
               best programming language for beginners"&mdash;right? At least,
               that's what I did, and that's when I found Python. So, in early
-              2020, my obsession began. Mornings? Codin' time. Nights?
-              Yeah&mdash;I'm coding!
+              2020, my obsession began. Mornings? Code. Nights? Yeah&mdash;I'm
+              coding!
             </p>
-            <h3 className="text-xl font-semibold">The Now</h3>
+            <h3 className="text-xl font-semibold">The Present</h3>
             <p>
               Fast forward to today. I'm studying computer science and working
               full-time (not as a programmer,
@@ -125,7 +124,7 @@ export default function About() {
                 <i> yet</i>
               </span>
               ). Over the past couple of years, I've learned Python, TypeScript,
-              and Java, along with React and Next.js.
+              and Java, along with some React and Next.js.
             </p>
             <p>
               I spend my nights devoted to programming, focusing on personal
