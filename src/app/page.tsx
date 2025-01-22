@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "~/components/Button";
 import { Card } from "~/components/Card";
 import { Container } from "~/components/Container";
 import { GitHubIcon, LinkedInIcon } from "~/components/SocialIcons";
@@ -43,13 +42,13 @@ function Article({ article }: { article: ArticleWithSlug }) {
 // ==== HOME PAGE ==== //
 
 export default async function Home() {
-  const articles = (await fetchArticles({limit: 3})).articles;
+  const articles = (await fetchArticles({ limit: 3 })).articles || [];
 
   return (
     <>
       <Container className="mt-9">
         <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
             Software designer, web developer, and student.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
@@ -89,7 +88,12 @@ export default async function Home() {
                 Sorry, I haven't written anything yet.
               </p>
             )}
-            <Link href="/articles" className="text-zinc-600 dark:text-zinc-400 underline">Read more</Link>
+            <Link
+              href="/articles"
+              className="text-zinc-600 underline dark:text-zinc-400"
+            >
+              Read more
+            </Link>
           </div>
         </div>
       </Container>

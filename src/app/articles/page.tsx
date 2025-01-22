@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Card } from "~/components/Card";
 import { PaginationControl } from "~/components/PaginationControl";
-import { SimpleLayout } from "~/components/SimpleLayout";
+import { SimpleLayoutExt } from "~/components/SimpleLayout";
 import { fetchArticles } from "~/graphql/actions";
 import { ArticleWithSlug } from "~/graphql/queries";
 import { DEFAULT_ARTICLES_PER_PAGE } from "~/lib/constants";
@@ -53,7 +53,7 @@ export default async function Articles(props: { searchParams: SearchParams }) {
   const page = Number(searchParams.page ?? 1);
   const perPage = Number(searchParams.per_page ?? DEFAULT_ARTICLES_PER_PAGE);
 
-  console.log("perpage", perPage)
+  console.log("perpage", perPage);
 
   let articles: ArticleWithSlug[] = [];
   let total = 0;
@@ -62,13 +62,15 @@ export default async function Articles(props: { searchParams: SearchParams }) {
   ({ articles, total } = await fetchArticles({ start, limit }));
 
   return (
-    <SimpleLayout
+    <SimpleLayoutExt
       title="Writing on programming, computer science, and life in general."
-      intro="All of my long-form thoughts on programming, computer science, life, and more, collected in chronological order."
+      intro={[
+        "All of my long-form thoughts on programming, computer science, life, and more, collected in chronological order. I’m maintaining this collection as an open journal, writing articles that may take the form of notes.",
+      ]}
     >
       <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
         <div className="flex max-w-3xl flex-col space-y-16">
-          {articles.length != 0 ? (
+          {articles && articles.length != 0 ? (
             articles.map((article) => (
               <Article key={article.urlSlug} article={article} />
             ))
@@ -85,6 +87,6 @@ export default async function Articles(props: { searchParams: SearchParams }) {
           defaultPerPage={DEFAULT_ARTICLES_PER_PAGE}
         />
       </div>
-    </SimpleLayout>
+    </SimpleLayoutExt>
   );
 }
