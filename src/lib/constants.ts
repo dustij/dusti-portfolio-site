@@ -1,6 +1,7 @@
 import avatarImage from "~/images/avatar.jpg";
 import logoClumsyCat from "~/images/logos/clumsycat.ico";
 import portraitImage from "~/images/portrait.jpg";
+import rsGraphImage from "~/images/RSGraph02.png";
 
 export { avatarImage, portraitImage };
 
@@ -26,4 +27,10 @@ export const projects = [
     link: { href: "https://www.clumsycatsol.com", label: "clumsycatsol.com" },
     logo: logoClumsyCat,
   },
+  {
+    name: "Reed-Solomon Demo",
+    description: "Java-based GUI application that visualizes Reed-Solomon encoding and decoding. Built for demonstrating error correction at Washburn University’s Apeiron event",
+    link: { href: "https://github.com/dustij/Reed-Solomon-Demo", label: "Go to GitHub" },
+    logo: rsGraphImage,
+  }
 ];
