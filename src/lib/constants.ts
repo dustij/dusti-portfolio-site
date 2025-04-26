@@ -21,16 +21,20 @@ export const DEFAULT_ARTICLES_PER_PAGE = 5;
 
 export const projects = [
   {
-    name: "ClumsyCat",
+    name: "ClumsyCat Website",
     description:
-      "A fun landing page for my Solana token launch, with responsive layouts and smooth animations.",
+      "Responsive landing page built with TypeScript and Next.js for my Solana token launch, featuring smooth animations with Framer Motion.”",
     link: { href: "https://www.clumsycatsol.com", label: "clumsycatsol.com" },
     logo: logoClumsyCat,
   },
   {
     name: "Reed-Solomon Demo",
-    description: "Java-based GUI application that visualizes Reed-Solomon encoding and decoding. Built for demonstrating error correction at Washburn University’s Apeiron event",
-    link: { href: "https://github.com/dustij/Reed-Solomon-Demo", label: "Go to GitHub" },
+    description:
+      "Java-based GUI application that visualizes Reed-Solomon encoding and decoding. Presented at Washburn University’s Apeiron event.",
+    link: {
+      href: "https://github.com/dustij/Reed-Solomon-Demo",
+      label: "Go to GitHub",
+    },
     logo: rsGraphImage,
-  }
+  },
 ];
