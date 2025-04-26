@@ -23,7 +23,7 @@ export const projects = [
   {
     name: "ClumsyCat Website",
     description:
-      "Responsive landing page built with TypeScript and Next.js for my Solana token launch, featuring smooth animations with Framer Motion.”",
+      "Responsive landing page built with TypeScript and Next.js for my Solana token launch, featuring smooth animations with Framer Motion.",
     link: { href: "https://www.clumsycatsol.com", label: "clumsycatsol.com" },
     logo: logoClumsyCat,
   },
