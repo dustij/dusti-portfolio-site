@@ -65,7 +65,7 @@ export default async function Articles(props: { searchParams: SearchParams }) {
     <SimpleLayoutExt
       title="Writing on programming, technology, and life in general."
       intro={[
-        "All of my long-form thoughts on programming, technology, life, and more, collected in chronological order. I’m maintaining this collection as an open journal, writing articles that may take the form of notes.",
+        "Welcome to the backlog of my brain—a mix of blog, journal, and brain dump. Posts on programming, tech, life, and everything in between. Some are tutorials, some are hot takes, and plenty are just me thinking out loud. Take a scroll and stay awhile.",
       ]}
     >
       <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
