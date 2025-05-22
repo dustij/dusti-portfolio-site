@@ -1,5 +1,7 @@
+import { StaticImageData } from "next/image";
 import avatarImage from "~/images/avatar.jpg";
-import logoClumsyCat from "~/images/logos/clumsycat.ico";
+import cacheImage from "~/images/cache-logo.png";
+import logoClumsyCat from "~/images/clumsycat.ico";
 import portraitImage from "~/images/portrait.jpg";
 import rsGraphImage from "~/images/RSGraph02.png";
 
@@ -19,11 +21,18 @@ export const socialLinks = {
 
 export const DEFAULT_ARTICLES_PER_PAGE = 5;
 
-export const projects = [
+interface Project {
+  name: string;
+  description: string;
+  link: { href: string; label: string };
+  logo: StaticImageData;
+}
+
+export const projects: Project[] = [
   {
     name: "ClumsyCat Website",
     description:
-      "Responsive landing page built with TypeScript and Next.js for my Solana token launch, featuring smooth animations with Framer Motion.",
+      "Responsive landing page built with Next.js and TypeScript for my Solana token launch, featuring smooth animations with Framer Motion.",
     link: { href: "https://www.clumsycatsol.com", label: "clumsycatsol.com" },
     logo: logoClumsyCat,
   },
@@ -36,5 +45,15 @@ export const projects = [
       label: "Go to GitHub",
     },
     logo: rsGraphImage,
+  },
+  {
+    name: "Cache Simulator",
+    description:
+      "Interactive webpage built with Next.js and TypeScript demonstrating how cache works inside your computer.",
+    link: {
+      href: "https://cs.dustijohnson.com",
+      label: "cs.dustijohnson.com",
+    },
+    logo: cacheImage,
   },
 ];
