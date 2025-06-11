@@ -51,7 +51,7 @@ export const projects: Project[] = [
     description:
       "Interactive webpage built with Next.js and TypeScript demonstrating how cache works inside your computer.",
     link: {
-      href: "https://cs.dustijohnson.com",
+      href: "https://cache.dustijohnson.com",
       label: "cs.dustijohnson.com",
     },
     logo: cacheImage,
