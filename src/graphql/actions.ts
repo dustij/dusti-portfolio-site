@@ -1,60 +1,59 @@
 "use server";
 
-import "server-only";
-
+import fs from "fs";
+import path from "path";
 import { DEFAULT_ARTICLES_PER_PAGE } from "~/lib/constants";
-import { client } from "./apollo";
-import {
+import type {
   ArticleSlug,
   ArticleWithContent,
   ArticleWithSlug,
-  GET_ALL_ARTICLES,
-  GET_ALL_SLUGS,
-  GET_ARTICLE_BY_SLUG,
-  GET_ARTICLES_PAGINATION,
 } from "./queries";
 
-// TODO: look into: https://www.apollographql.com/docs/react/data/refetching
+const dataDir = path.join(process.cwd(), "src", "data");
+
+function readArticles(): ArticleWithContent[] {
+  const filePath = path.join(dataDir, "articles.json");
+  return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+}
+
 export async function fetchArticles({
   start = 0,
   limit = DEFAULT_ARTICLES_PER_PAGE,
+}: {
+  start?: number;
+  limit?: number;
 }): Promise<{ articles: ArticleWithSlug[]; total: number }> {
-  const result = await client.query({
-    query: GET_ARTICLES_PAGINATION,
-    variables: { pagination: { start, limit } },
-    fetchPolicy: "no-cache",
-  });
-
+  const articles = readArticles();
+  const sliced = articles.slice(start, start + limit).map((article) => ({
+    urlSlug: article.urlSlug,
+    title: article.title,
+    description: article.description,
+    updatedAt: article.updatedAt,
+  }));
   return {
-    articles: result?.data.blogPosts,
-    total: result?.data.blogPosts_connection.pageInfo.total,
+    articles: sliced,
+    total: articles.length,
   };
 }
 
 export async function fetchArticleBySlug(
   urlSlug: string,
-): Promise<ArticleWithContent> {
-  const result = await client.query({
-    query: GET_ARTICLE_BY_SLUG,
-    variables: { urlSlug },
-    fetchPolicy: "no-cache",
-  });
-  return result?.data.blogPosts[0];
+): Promise<ArticleWithContent | undefined> {
+  const articles = readArticles();
+  return articles.find((article) => article.urlSlug === urlSlug);
 }
 
 export async function fetchAllArticles(): Promise<ArticleWithSlug[]> {
-  const result = await client.query({
-    query: GET_ALL_ARTICLES,
-    fetchPolicy: "no-cache",
-  });
-
-  return result?.data.blogPosts;
+  const articles = readArticles();
+  return articles.map((article) => ({
+    urlSlug: article.urlSlug,
+    title: article.title,
+    description: article.description,
+    updatedAt: article.updatedAt,
+  }));
 }
 
 export async function fetchAllSlugs(): Promise<ArticleSlug[]> {
-  const result = await client.query({
-    query: GET_ALL_SLUGS,
-    fetchPolicy: "no-cache",
-  });
-  return result?.data.blogPosts;
+  const articles = readArticles();
+  return articles.map(({ urlSlug }) => ({ urlSlug }));
 }

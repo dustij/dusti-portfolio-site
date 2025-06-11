@@ -60,6 +60,6 @@ export interface ArticleWithSlug extends Article {
   urlSlug: string;
 }
 
-export interface ArticleWithContent extends Article {
+export interface ArticleWithContent extends ArticleWithSlug {
   content: string;
 }
