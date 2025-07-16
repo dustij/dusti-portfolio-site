@@ -4,6 +4,7 @@ import cacheImage from "~/images/cache-logo.png";
 import logoClumsyCat from "~/images/clumsycat.ico";
 import portraitImage from "~/images/portrait.jpg";
 import rsGraphImage from "~/images/RSGraph02.png";
+import timeismoneyImage from "~/images/timeismoney.png";
 
 export { avatarImage, portraitImage };
 
@@ -30,10 +31,20 @@ interface Project {
 
 export const projects: Project[] = [
   {
+    name: "Time is Money App",
+    description:
+      "A simple Flutter app that tracks your hourly wage in real time—start/stop a timer to see how much you’ve earned and view your session history. Live on App Store.",
+    link: {
+      href: "https://apps.apple.com/us/app/time-is-money-bearwolf-labs/id6748645209",
+      label: "Go to App Store",
+    },
+    logo: timeismoneyImage,
+  },
+  {
     name: "ClumsyCat Website",
     description:
       "Responsive landing page built with Next.js and TypeScript for my Solana token launch, featuring smooth animations with Framer Motion.",
-    link: { href: "https://www.clumsycatsol.com", label: "clumsycatsol.com" },
+    link: { href: "https://www.clumsycatsol.com", label: "Go to website" },
     logo: logoClumsyCat,
   },
   {
@@ -52,7 +63,7 @@ export const projects: Project[] = [
       "Interactive webpage built with Next.js and TypeScript demonstrating how cache works inside your computer.",
     link: {
       href: "https://cache.dustijohnson.com",
-      label: "cache.dustijohnson.com",
+      label: "Go to website",
     },
     logo: cacheImage,
   },

@@ -6,6 +6,29 @@ import { Card } from "~/components/Card";
 import { SimpleLayout } from "~/components/SimpleLayout";
 import { projects } from "~/lib/constants";
 
+function ArrowIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        d="M3 12h12"
+        stroke="currentColor"
+        strokeWidth={2}
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 18l6-6-6-6"
+        stroke="currentColor"
+        strokeWidth={2}
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function LinkIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
@@ -51,8 +74,8 @@ export default function Projects() {
             </h2>
             <Card.Description>{project.description}</Card.Description>
             <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-primary-500 dark:text-zinc-200">
-              <LinkIcon className="h-6 w-6 flex-none" />
-              <span className="ml-2">{project.link.label}</span>
+              <span className="">{project.link.label}</span>
+              <ArrowIcon className="ml-4 h-6 w-6 flex-none" />
             </p>
           </Card>
         ))}
