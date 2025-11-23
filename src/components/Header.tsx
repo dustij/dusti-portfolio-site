@@ -422,6 +422,27 @@ export function Header() {
               "var(--header-position)" as React.CSSProperties["position"],
           }}
         >
+          {/* Liquid glass blur gradient background */}
+          <div
+            className="pointer-events-none absolute inset-x-0 -top-6 h-32 dark:hidden"
+            style={{
+              background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, transparent 100%)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              maskImage: 'linear-gradient(to bottom, black 0%, black 30%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 30%, transparent 100%)',
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-x-0 -top-6 h-32 hidden dark:block"
+            style={{
+              background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, transparent 100%)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              maskImage: 'linear-gradient(to bottom, black 0%, black 30%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 30%, transparent 100%)',
+            }}
+          />
           <Container
             className="top-[var(--header-top,theme(spacing.6))] w-full"
             style={{
