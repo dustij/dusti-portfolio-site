@@ -11,7 +11,7 @@ export { avatarImage, portraitImage };
 
 export const navLinks = [
   { text: "About", href: "/about" },
-  { text: "Articles", href: "/articles" },
+  // { text: "Articles", href: "/articles" },
   { text: "Projects", href: "/projects" },
   // { text: "Contact", href: "/contact" },
 ];

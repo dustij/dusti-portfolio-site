@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { Card } from "~/components/Card";
+// import { Card } from "~/components/Card";
 import { Container } from "~/components/Container";
 import { GitHubIcon, LinkedInIcon } from "~/components/SocialIcons";
-import { fetchArticles } from "~/graphql/actions";
-import { ArticleWithSlug } from "~/graphql/queries";
+// import { fetchArticles } from "~/graphql/actions";
+// import { ArticleWithSlug } from "~/graphql/queries";
 import { socialLinks } from "~/lib/constants";
-import { formatDate } from "~/lib/formatDate";
+// import { formatDate } from "~/lib/formatDate";
 
 // ==== SOCIAL LINK ==== //
 
@@ -24,25 +24,25 @@ function SocialLink({
 
 // ==== ARTICLE COMPONENT ==== //
 
-function Article({ article }: { article: ArticleWithSlug }) {
-  return (
-    <Card as="article">
-      <Card.Title href={`/articles/${article.urlSlug}`}>
-        {article.title}
-      </Card.Title>
-      <Card.Eyebrow as="time" dateTime={article.updatedAt} decorate>
-        {formatDate(article.updatedAt)}
-      </Card.Eyebrow>
-      <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
-    </Card>
-  );
-}
+// function Article({ article }: { article: ArticleWithSlug }) {
+//   return (
+//     <Card as="article">
+//       <Card.Title href={`/articles/${article.urlSlug}`}>
+//         {article.title}
+//       </Card.Title>
+//       <Card.Eyebrow as="time" dateTime={article.updatedAt} decorate>
+//         {formatDate(article.updatedAt)}
+//       </Card.Eyebrow>
+//       <Card.Description>{article.description}</Card.Description>
+//       <Card.Cta>Read article</Card.Cta>
+//     </Card>
+//   );
+// }
 
 // ==== HOME PAGE ==== //
 
 export default async function Home() {
-  const articles = (await fetchArticles({ limit: 3 })).articles || [];
+  // const articles = (await fetchArticles({ limit: 3 })).articles || [];
 
   return (
     <>
@@ -72,6 +72,7 @@ export default async function Home() {
           </div>
         </div>
       </Container>
+      {/* Articles section hidden
       <Container className="mt-12 md:mt-14">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
@@ -97,6 +98,7 @@ export default async function Home() {
           </div>
         </div>
       </Container>
+      */}
     </>
   );
 }
