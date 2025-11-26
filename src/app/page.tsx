@@ -49,12 +49,12 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Software designer, web developer, and student.
+            Programmer, web developer, student.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Hey there, I'm Dusti&mdash;a software engineer and computer science
-            student. Usually, I'm burning the midnight oil, working on a
-            personal project or diving deep into documentation.
+            Hey, I'm Dusti. I'm a CIS student and hobbyist developer who loves
+            making small projects, trying out new tech, and learning by doing.
+            Feel free to explore my projects and see what I've been working on.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink

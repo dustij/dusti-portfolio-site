@@ -51,7 +51,7 @@ export default function Projects() {
   return (
     <SimpleLayout
       title="Some of the things I've made along the way."
-      intro="I’ve worked on a lot of pet projects over the years, but these are the ones I’m most proud of. Admittedly, my projects folder is full of unfinished work. I'll keep adding to this page as I advance in software engineering, so check back for updates."
+      intro="Here are a few projects I've enjoyed working on. I'm always learning and trying new things, so I'll keep adding more over time."
     >
       <ul
         role="list"
