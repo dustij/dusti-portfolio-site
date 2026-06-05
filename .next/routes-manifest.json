@@ -1,0 +1,152 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/blog/3-lessons-we-learned-going-back-to-the-office",
+      "regex": "^/blog/3\\-lessons\\-we\\-learned\\-going\\-back\\-to\\-the\\-office(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/3\\-lessons\\-we\\-learned\\-going\\-back\\-to\\-the\\-office(?:/)?$"
+    },
+    {
+      "page": "/blog/a-short-guide-to-component-naming",
+      "regex": "^/blog/a\\-short\\-guide\\-to\\-component\\-naming(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/a\\-short\\-guide\\-to\\-component\\-naming(?:/)?$"
+    },
+    {
+      "page": "/blog/future-of-web-development",
+      "regex": "^/blog/future\\-of\\-web\\-development(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/future\\-of\\-web\\-development(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/process",
+      "regex": "^/process(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/process(?:/)?$"
+    },
+    {
+      "page": "/work",
+      "regex": "^/work(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/work(?:/)?$"
+    },
+    {
+      "page": "/work/cache-simulator",
+      "regex": "^/work/cache\\-simulator(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/work/cache\\-simulator(?:/)?$"
+    },
+    {
+      "page": "/work/clumsycat-website",
+      "regex": "^/work/clumsycat\\-website(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/work/clumsycat\\-website(?:/)?$"
+    },
+    {
+      "page": "/work/mentor-data-table",
+      "regex": "^/work/mentor\\-data\\-table(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/work/mentor\\-data\\-table(?:/)?$"
+    },
+    {
+      "page": "/work/mesocycle-workout-planner",
+      "regex": "^/work/mesocycle\\-workout\\-planner(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/work/mesocycle\\-workout\\-planner(?:/)?$"
+    },
+    {
+      "page": "/work/reed-solomon-demo",
+      "regex": "^/work/reed\\-solomon\\-demo(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/work/reed\\-solomon\\-demo(?:/)?$"
+    },
+    {
+      "page": "/work/time-is-money",
+      "regex": "^/work/time\\-is\\-money(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/work/time\\-is\\-money(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

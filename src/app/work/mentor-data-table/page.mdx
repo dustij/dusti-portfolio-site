@@ -1,0 +1,55 @@
+export const caseStudy = {
+  project: 'Mentor Data Table',
+  title: 'Making mentor session records searchable and exportable',
+  description:
+    'A cross-platform Flutter app for viewing mentor session records in a searchable, filterable, sortable table with Excel export.',
+  summary: [
+    'Mentor Data Table turns session records into an operational interface: users can search, filter, sort, and export data without leaving the app.',
+    'The project focuses on the everyday ergonomics of dense data: stable table behavior, clear controls, and a practical export path.',
+  ],
+  date: '2025-05',
+  role: 'Cross-platform app development, data table UX, export workflow',
+  stack: ['Flutter', 'Dart', 'Data tables', 'Excel export'],
+  externalLink: {
+    href: 'https://github.com/dustij/mentor_data_table',
+    label: 'Go to GitHub',
+  },
+}
+
+export const metadata = {
+  title: `${caseStudy.project} Project`,
+  description: caseStudy.description,
+}
+
+## Overview
+
+Mentor Data Table is built for repeated data review. Instead of presenting
+records as static output, the app gives users the controls they need to find a
+session, compare records, and export the current data set.
+
+The core interface is intentionally practical. Search, filter, sort, and export
+are treated as first-class actions because those are the workflows that make the
+data useful.
+
+## What mattered
+
+<TagList>
+  <TagListItem>Search</TagListItem>
+  <TagListItem>Filtering</TagListItem>
+  <TagListItem>Sorting</TagListItem>
+  <TagListItem>Excel export</TagListItem>
+</TagList>
+
+The table needed to stay predictable while users changed the current view of
+the data. That meant keeping controls clear, preserving the relationship between
+filters and results, and making export feel like part of the workflow instead
+of an afterthought.
+
+## Result
+
+<StatList>
+  <StatListItem value="4" label="Core data actions" />
+  <StatListItem value="1" label="Export path" />
+  <StatListItem value="1" label="Cross-platform codebase" />
+  <StatListItem value="0" label="Manual spreadsheet cleanup required" />
+</StatList>

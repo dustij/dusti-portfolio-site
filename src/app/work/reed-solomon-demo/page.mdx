@@ -1,0 +1,55 @@
+export const caseStudy = {
+  project: 'Reed-Solomon Demo',
+  title: 'Visualizing error correction with a Java GUI',
+  description:
+    'A Java GUI application that demonstrates Reed-Solomon encoding and decoding, presented at Washburn University’s Apeiron event.',
+  summary: [
+    'The Reed-Solomon Demo makes an error-correction algorithm easier to explain by showing the encoding and decoding process in a visual desktop interface.',
+    'The project was built for presentation, so the interface needed to support both exploration and clear walkthroughs of what the algorithm is doing.',
+  ],
+  date: '2024-04',
+  role: 'Java GUI development, algorithm visualization, academic presentation',
+  stack: ['Java', 'GUI', 'Reed-Solomon', 'Error correction'],
+  externalLink: {
+    href: 'https://github.com/dustij/Reed-Solomon-Demo',
+    label: 'Go to GitHub',
+  },
+}
+
+export const metadata = {
+  title: `${caseStudy.project} Project`,
+  description: caseStudy.description,
+}
+
+## Overview
+
+Reed-Solomon encoding is easier to talk about when the intermediate state is
+visible. This desktop application turns the algorithm into a GUI-driven demo so
+users can follow how data is encoded, how errors are introduced, and how
+decoding recovers the original message.
+
+The project was presented at Washburn University’s Apeiron event, which shaped
+the interface requirements. It needed to be understandable in a live setting,
+not just correct in code.
+
+## What mattered
+
+<TagList>
+  <TagListItem>Algorithm visualization</TagListItem>
+  <TagListItem>Java GUI</TagListItem>
+  <TagListItem>Error correction</TagListItem>
+  <TagListItem>Presentation flow</TagListItem>
+</TagList>
+
+The main challenge was translating algorithmic steps into something a viewer
+could inspect. The GUI gives the code a presentation surface, making the
+behavior easier to explain and verify.
+
+## Result
+
+<StatList>
+  <StatListItem value="1" label="Java desktop demo" />
+  <StatListItem value="1" label="Apeiron presentation" />
+  <StatListItem value="2" label="Core algorithm phases" />
+  <StatListItem value="0" label="Black-box explanations" />
+</StatList>

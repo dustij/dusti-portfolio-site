@@ -1,45 +1,22 @@
-import { cn } from "~/lib/utils";
+import clsx from 'clsx'
 
-type ContainerProps = React.ComponentPropsWithoutRef<"div"> & {
-  className?: string;
-  children?: React.ReactNode;
-  ref?: React.Ref<HTMLDivElement>;
-};
-
-export function ContainerOuter({
-  className,
-  children,
-  ref,
-  ...props
-}: ContainerProps) {
-  return (
-    <div ref={ref} className={cn("sm:px-8", className)} {...props}>
-      <div className="mx-auto w-full max-w-7xl lg:px-8">{children}</div>
-    </div>
-  );
+type ContainerProps<T extends React.ElementType> = {
+  as?: T
+  className?: string
+  children: React.ReactNode
 }
 
-export function ContainerInner({
+export function Container<T extends React.ElementType = 'div'>({
+  as,
   className,
   children,
-  ref,
-  ...props
-}: ContainerProps) {
-  return (
-    <div
-      ref={ref}
-      className={cn("relative px-4 sm:px-8 lg:px-12", className)}
-      {...props}
-    >
-      <div className="mx-auto max-w-2xl lg:max-w-5xl">{children}</div>
-    </div>
-  );
-}
+}: Omit<React.ComponentPropsWithoutRef<T>, keyof ContainerProps<T>> &
+  ContainerProps<T>) {
+  let Component = as ?? 'div'
 
-export function Container({ children, ref, ...props }: ContainerProps) {
   return (
-    <ContainerOuter ref={ref} {...props}>
-      <ContainerInner>{children}</ContainerInner>
-    </ContainerOuter>
-  );
+    <Component className={clsx('mx-auto max-w-7xl px-6 lg:px-8', className)}>
+      <div className="mx-auto max-w-2xl lg:max-w-none">{children}</div>
+    </Component>
+  )
 }

@@ -1,0 +1,54 @@
+export const caseStudy = {
+  project: 'Cache Simulator',
+  title: 'Exploring cache behavior through interaction',
+  description:
+    'An interactive Next.js and TypeScript demo for comparing direct-mapped, fully-associative, and set-associative caches.',
+  summary: [
+    'Cache Simulator makes cache mapping strategies easier to reason about by letting users change inputs and watch how cache state responds.',
+    'The project turns an abstract computer architecture topic into a visual, hands-on demo that supports experimentation instead of passive reading.',
+  ],
+  date: '2025-07',
+  role: 'Interactive systems demo, frontend implementation, educational UI',
+  stack: ['Next.js', 'TypeScript', 'React', 'Computer architecture'],
+  externalLink: {
+    href: 'https://cache.dustijohnson.com',
+    label: 'Go to website',
+  },
+}
+
+export const metadata = {
+  title: `${caseStudy.project} Project`,
+  description: caseStudy.description,
+}
+
+## Overview
+
+Cache behavior is easier to understand when the state is visible. This project
+lets users explore direct-mapped, fully-associative, and set-associative caches
+by adjusting inputs and observing how addresses land in cache lines or sets.
+
+The interface is designed as a learning tool: it keeps the cache configuration,
+memory references, and resulting state close together so users can connect each
+step with the outcome.
+
+## What mattered
+
+<TagList>
+  <TagListItem>Direct-mapped caches</TagListItem>
+  <TagListItem>Fully-associative caches</TagListItem>
+  <TagListItem>Set-associative caches</TagListItem>
+  <TagListItem>Interactive explanation</TagListItem>
+</TagList>
+
+The challenge was to make the simulator detailed enough to be useful without
+turning it into a wall of controls. The UI keeps the cache mode explicit and
+lets the current state do most of the teaching.
+
+## Result
+
+<StatList>
+  <StatListItem value="3" label="Cache mapping modes" />
+  <StatListItem value="1" label="Interactive learning surface" />
+  <StatListItem value="100%" label="Browser-based demo" />
+  <StatListItem value="0" label="Static diagrams required" />
+</StatList>

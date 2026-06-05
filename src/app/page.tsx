@@ -1,104 +1,180 @@
-import Link from "next/link";
-// import { Card } from "~/components/Card";
-import { Container } from "~/components/Container";
-import { GitHubIcon, LinkedInIcon } from "~/components/SocialIcons";
-// import { fetchArticles } from "~/graphql/actions";
-// import { ArticleWithSlug } from "~/graphql/queries";
-import { socialLinks } from "~/lib/constants";
-// import { formatDate } from "~/lib/formatDate";
+import { type Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 
-// ==== SOCIAL LINK ==== //
+import { ContactSection } from '@/components/ContactSection'
+import { Container } from '@/components/Container'
+import { FadeIn, FadeInStagger } from '@/components/FadeIn'
+import { GridList, GridListItem } from '@/components/GridList'
+import { SectionIntro } from '@/components/SectionIntro'
+import imageDusti from '@/images/dusti/blue-headshot-1.jpg'
+import {
+  type Article,
+  type CaseStudy,
+  type MDXEntry,
+  loadArticles,
+  loadCaseStudies,
+} from '@/lib/mdx'
+import { RootLayout } from '@/components/RootLayout'
 
-function SocialLink({
-  icon: Icon,
-  ...props
-}: React.ComponentPropsWithoutRef<typeof Link> & {
-  icon: React.ComponentType<{ className?: string }>;
+function FeaturedProjects({
+  projects,
+}: {
+  projects: Array<MDXEntry<CaseStudy>>
 }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
-    </Link>
-  );
+    <>
+      <SectionIntro
+        eyebrow="Portfolio"
+        title="Selected automation, application, and systems work."
+        className="mt-24 sm:mt-32 lg:mt-40"
+      >
+        <p>
+          A few examples of how I think through workflow logic, data movement,
+          product constraints, and the details that make software reliable
+          enough for real users.
+        </p>
+      </SectionIntro>
+      <Container className="mt-16">
+        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          {projects.map((project) => (
+            <FadeIn key={project.href} className="flex">
+              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
+                <p className="text-sm font-semibold text-neutral-950">
+                  {project.project}
+                </p>
+                <h3 className="mt-6 font-display text-2xl font-semibold text-neutral-950">
+                  <Link href={project.href}>
+                    <span className="absolute inset-0 rounded-3xl" />
+                    {project.title}
+                  </Link>
+                </h3>
+                <p className="mt-4 text-base text-neutral-600">
+                  {project.description}
+                </p>
+                <p className="mt-6 text-sm text-neutral-950">
+                  {project.role}
+                </p>
+              </article>
+            </FadeIn>
+          ))}
+        </FadeInStagger>
+      </Container>
+    </>
+  )
 }
 
-// ==== ARTICLE COMPONENT ==== //
-
-// function Article({ article }: { article: ArticleWithSlug }) {
-//   return (
-//     <Card as="article">
-//       <Card.Title href={`/articles/${article.urlSlug}`}>
-//         {article.title}
-//       </Card.Title>
-//       <Card.Eyebrow as="time" dateTime={article.updatedAt} decorate>
-//         {formatDate(article.updatedAt)}
-//       </Card.Eyebrow>
-//       <Card.Description>{article.description}</Card.Description>
-//       <Card.Cta>Read article</Card.Cta>
-//     </Card>
-//   );
-// }
-
-// ==== HOME PAGE ==== //
-
-export default async function Home() {
-  // const articles = (await fetchArticles({ limit: 3 })).articles || [];
-
+function Writing({ articles }: { articles: Array<MDXEntry<Article>> }) {
   return (
     <>
-      <Container className="mt-9">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Programmer, web developer, student.
-          </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Hey, I'm Dusti. I'm a CIS student and hobbyist developer who loves
-            making small projects, trying out new tech, and learning by doing.
-            Feel free to explore my projects and see what I've been working on.
-          </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink
-              href={socialLinks.gitHub}
-              target="_blank"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href={socialLinks.linkedIn}
-              target="_blank"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
-          </div>
-        </div>
+      <SectionIntro
+        eyebrow="Blog"
+        title="Notes on automation, interfaces, and maintainable systems."
+        className="mt-24 sm:mt-32 lg:mt-40"
+      >
+        <p>
+          Practical writing shaped by CRM integration work, TypeScript projects,
+          SQL data modeling, research collaboration, and the craft of making
+          technical decisions legible.
+        </p>
+      </SectionIntro>
+      <Container className="mt-16">
+        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          {articles.map((article) => (
+            <FadeIn key={article.href} className="flex">
+              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
+                <p className="text-sm text-neutral-950">{article.date}</p>
+                <h3 className="mt-6 font-display text-2xl font-semibold text-neutral-950">
+                  <Link href={article.href}>
+                    <span className="absolute inset-0 rounded-3xl" />
+                    {article.title}
+                  </Link>
+                </h3>
+                <p className="mt-4 text-base text-neutral-600">
+                  {article.description}
+                </p>
+              </article>
+            </FadeIn>
+          ))}
+        </FadeInStagger>
       </Container>
-      {/* Articles section hidden
-      <Container className="mt-12 md:mt-14">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
-            <div className="-mb-16 mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40" />
-            <h1 className="text-lg text-zinc-700 dark:text-zinc-200">
-              Recent Articles
-            </h1>
-            {articles.length != 0 ? (
-              articles?.map((article: ArticleWithSlug) => (
-                <Article key={article.urlSlug} article={article} />
-              ))
-            ) : (
-              <p className="text-zinc-400 dark:text-zinc-500">
-                Sorry, I haven't written anything yet.
-              </p>
-            )}
-            <Link
-              href="/articles"
-              className="text-zinc-600 underline dark:text-zinc-400"
-            >
-              Read more
-            </Link>
-          </div>
-        </div>
-      </Container>
-      */}
     </>
-  );
+  )
+}
+
+function FocusAreas() {
+  return (
+    <Container className="mt-24 sm:mt-32 lg:mt-40">
+      <FadeIn>
+        <GridList>
+          <GridListItem title="CRM integrations">
+            Make-based automations, webhooks, API configuration, field mapping,
+            and data flows that support internal teams and advisor-facing
+            platforms.
+          </GridListItem>
+          <GridListItem title="Application development">
+            Next.js, TypeScript, MySQL, MariaDB, Java, and occasional mobile
+            app work built around useful workflows, clear interfaces, and
+            reliable behavior.
+          </GridListItem>
+          <GridListItem title="Systems troubleshooting">
+            A practical operations mindset from production equipment, app
+            development, and integration debugging: isolate the issue, test the
+            fix, and document what changed.
+          </GridListItem>
+        </GridList>
+      </FadeIn>
+    </Container>
+  )
+}
+
+export const metadata: Metadata = {
+  description:
+    'Dusti Johnson is a CRM Integration Developer and Computer Information Science student building automations, applications, and practical software systems.',
+}
+
+export default async function Home() {
+  let projects = (await loadCaseStudies()).slice(0, 3)
+  let articles = (await loadArticles()).slice(0, 3)
+
+  return (
+    <RootLayout>
+      <Container className="mt-24 sm:mt-32 md:mt-56">
+        <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:items-end lg:gap-x-8">
+          <FadeIn className="max-w-3xl lg:col-span-7">
+            <p className="font-display text-base font-semibold text-neutral-950">
+              Dusti Johnson
+            </p>
+            <h1 className="mt-6 font-display text-5xl font-medium tracking-tight text-balance text-neutral-950 sm:text-7xl">
+              CRM Integration Developer building reliable automations and useful apps.
+            </h1>
+            <p className="mt-6 text-xl text-neutral-600">
+              I design Make-based workflows, connect systems through APIs and
+              webhooks, and build TypeScript and SQL-backed applications with a
+              focus on clear data flow, careful testing, and documentation.
+            </p>
+          </FadeIn>
+          <FadeIn className="lg:col-span-5">
+            <div className="overflow-hidden rounded-3xl bg-neutral-100">
+              <Image
+                src={imageDusti}
+                alt="Dusti Johnson"
+                className="aspect-4/5 w-full object-cover"
+                priority
+                sizes="(min-width: 1024px) 28rem, 100vw"
+              />
+            </div>
+          </FadeIn>
+        </div>
+      </Container>
+
+      <FocusAreas />
+
+      <FeaturedProjects projects={projects} />
+
+      <Writing articles={articles} />
+
+      <ContactSection />
+    </RootLayout>
+  )
 }

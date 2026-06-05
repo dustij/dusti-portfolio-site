@@ -1,0 +1,20 @@
+{
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/blog/3-lessons-we-learned-going-back-to-the-office/page": "app/blog/3-lessons-we-learned-going-back-to-the-office/page.js",
+  "/blog/future-of-web-development/page": "app/blog/future-of-web-development/page.js",
+  "/blog/a-short-guide-to-component-naming/page": "app/blog/a-short-guide-to-component-naming/page.js",
+  "/about/page": "app/about/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/work/cache-simulator/page": "app/work/cache-simulator/page.js",
+  "/work/clumsycat-website/page": "app/work/clumsycat-website/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/work/mentor-data-table/page": "app/work/mentor-data-table/page.js",
+  "/work/mesocycle-workout-planner/page": "app/work/mesocycle-workout-planner/page.js",
+  "/work/reed-solomon-demo/page": "app/work/reed-solomon-demo/page.js",
+  "/page": "app/page.js",
+  "/work/time-is-money/page": "app/work/time-is-money/page.js",
+  "/process/page": "app/process/page.js",
+  "/work/page": "app/work/page.js"
+}

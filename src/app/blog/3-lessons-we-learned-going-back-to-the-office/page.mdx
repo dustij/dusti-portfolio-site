@@ -1,0 +1,56 @@
+export const article = {
+  date: '2026-04-22',
+  title: 'What ER Diagrams Clarify Before Code Exists',
+  description:
+    'A good ER diagram makes entities, relationships, and ownership visible before those assumptions harden into application code.',
+  author: {
+    name: 'Dusti Johnson',
+    role: 'Developer',
+  },
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+## Entities are not tables yet
+
+When I sketch an ER diagram, I try to avoid jumping straight to table design.
+The first pass is about the real objects in the problem: users, sessions,
+records, plans, mentors, exercises, or whatever the domain actually uses.
+
+That distinction matters because implementation details can hide a bad model.
+If the entities are unclear before code exists, the database schema will usually
+carry that confusion forward.
+
+## Relationships expose product rules
+
+Relationships are where a lot of product behavior lives. One mentor can have
+many sessions. One workout plan can contain many training blocks. A session
+record might belong to one student, one mentor, and one program at the same
+time.
+
+Drawing those relationships forces useful questions:
+
+- Can this object exist on its own?
+- Is this relationship one-to-one, one-to-many, or many-to-many?
+- What should happen when a related record is deleted?
+- Which entity owns the lifecycle of the data?
+
+The answers shape the interface and the code, not just the database.
+
+<TopTip>
+  If the diagram needs a paragraph of explanation for every relationship, the
+  model probably needs simpler names or cleaner boundaries.
+</TopTip>
+
+## Diagrams make tradeoffs discussable
+
+The value of an ER diagram is not that it becomes permanent documentation. The
+value is that it gives people something concrete to argue with before the
+implementation gets expensive.
+
+That has helped me in projects where the hard part was not writing queries. The
+hard part was deciding what the data meant and how future changes should fit
+without bending the whole application around a bad assumption.
