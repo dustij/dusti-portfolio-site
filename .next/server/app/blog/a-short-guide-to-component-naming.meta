@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/blog/layout,_N_T_/blog/a-short-guide-to-component-naming/layout,_N_T_/blog/a-short-guide-to-component-naming/page,_N_T_/blog/a-short-guide-to-component-naming"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/blog/a-short-guide-to-component-naming/__PAGE__",
+    "/blog/a-short-guide-to-component-naming",
+    "/blog",
+    "/_index",
+    "/_head"
+  ]
+}

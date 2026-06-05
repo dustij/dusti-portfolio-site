@@ -1,0 +1,55 @@
+export const caseStudy = {
+  project: 'Time is Money App',
+  title: 'Tracking hourly earnings in real time',
+  description:
+    'A Flutter iOS app that turns work sessions into a live earnings counter, with start/stop timing and session history.',
+  summary: [
+    'Time is Money is a small utility app with one clear job: enter an hourly wage, start a timer, and see the session value increase in real time.',
+    'The project focuses on making the core loop immediate and readable while preserving enough history for users to review previous sessions.',
+  ],
+  date: '2025-08',
+  role: 'iOS app development, Flutter implementation, App Store release',
+  stack: ['Flutter', 'Dart', 'iOS', 'App Store'],
+  externalLink: {
+    href: 'https://apps.apple.com/us/app/time-is-money-bearwolf-labs/id6748645209',
+    label: 'Go to App Store',
+  },
+}
+
+export const metadata = {
+  title: `${caseStudy.project} Project`,
+  description: caseStudy.description,
+}
+
+## Overview
+
+Time is Money is built around a simple interaction: start a work session and
+watch the value of that time update as the timer runs. The app keeps the
+interface focused on the current session instead of burying the main action
+behind setup screens or extra configuration.
+
+The session history gives the app a useful second layer. Users can look back at
+past timers without changing the primary experience, which keeps the app direct
+while still making it practical for repeated use.
+
+## What mattered
+
+<TagList>
+  <TagListItem>Real-time counter</TagListItem>
+  <TagListItem>Session history</TagListItem>
+  <TagListItem>Mobile UI</TagListItem>
+  <TagListItem>App Store release</TagListItem>
+</TagList>
+
+The main engineering constraint was keeping the timer state trustworthy and the
+display calm. A utility app like this needs to make the current number easy to
+read, avoid surprising resets, and make stopping or reviewing a session obvious.
+
+## Result
+
+<StatList>
+  <StatListItem value="1" label="Focused earning workflow" />
+  <StatListItem value="2" label="Primary session actions" />
+  <StatListItem value="1" label="Published iOS app" />
+  <StatListItem value="0" label="Unneeded setup screens" />
+</StatList>

@@ -1,0 +1,93 @@
+export const article = {
+  date: '2026-05-24',
+  title: 'A Short Guide to Naming Automation Components',
+  description:
+    'Large Make scenarios are easier to maintain when workflow logic is split into named components with clear inputs, outputs, and responsibility.',
+  author: {
+    name: 'Dusti Johnson',
+    role: 'CRM Integration Developer',
+  },
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+## Build components, not one giant workflow
+
+My first instinct with a Make automation is to look for the boundaries. If a
+piece of logic has a clear input and a clear output, it probably deserves to be
+its own component instead of another branch inside an already-large scenario.
+
+That is why I like names such as `getMappedLeadSource`, `getOrCreateLead`, and
+`pushLeadSourceToClient`. Each one describes a specific responsibility. One maps
+an incoming source value. One resolves whether a lead already exists or needs to
+be created. One pushes a lead source update to another system.
+
+The handler scenarios can then stay focused on events: `handleNewOpportunity`,
+`handleCampaignChange`, and `handleLeadSourceChange`. They receive the event,
+perform the minimum checks needed for that event, and call the smaller
+components that know how to do the reusable work.
+
+## Name the contract
+
+Automation naming should make the contract visible. A subscenario name should
+answer three questions:
+
+- What does this component receive?
+- What decision or action does it own?
+- What does it return or produce?
+
+`getOrCreateLead` is a good example of a name that carries a contract. It tells
+me the component accepts enough lead information to search first, create only if
+needed, and return a usable lead identifier. The name does not describe every
+Salesforce module inside it. It describes the business result the rest of the
+workflow can depend on.
+
+That is the same reason I like return names such as `leadID`, `leadSource`, and
+`Return leadID And leadSource`. The output is part of the interface. If the
+output is vague, every caller has to reopen the component to understand what it
+actually provides.
+
+## Let condition names explain the branch
+
+Branches are where Make scenarios can become hard to read. A branch named after
+the module type is not useful. A branch named after the question it answers is.
+
+Names like `Does Mapping Exist?`, `Does Lead Exist?`, `Does Campaign Exist?`,
+and `Do Lead Sources Match?` make the workflow easier to scan because they
+turn branching logic into plain-language checkpoints. The scenario reads like a
+sequence of decisions instead of a pile of modules.
+
+<TopTip>
+  If a router or condition cannot be named as a question, I usually do not
+  understand the branch well enough yet.
+</TopTip>
+
+## Keep tool names secondary
+
+Module labels still matter, but they should not be the main abstraction.
+`Get Lead By Email` is better than `Search Records` because the Salesforce
+module is only the implementation detail. `POST: onLeadSourceReceived` is better
+than `HTTP request` because it names the side effect.
+
+This is especially important when a scenario mixes Salesforce, webhooks, HTTP
+requests, AI-assisted matching, JavaScript validation, and ticket creation. The
+tools are different, but the workflow still needs one readable story.
+
+## Small components make failures smaller
+
+The biggest practical benefit of modular automation is troubleshooting. If a
+new opportunity fails, I want to know whether the problem is the security check,
+lead lookup, lead creation, lead source mapping, or the outbound push. Those
+should be inspectable as separate pieces.
+
+Small scenarios also make testing easier. I can test `getMappedLeadSource`
+without triggering the whole opportunity flow. I can test `pushLeadSourceToAESync`
+with a known contact ID, opportunity ID, and lead source. That makes sandbox
+testing more targeted and production changes less risky.
+
+Deliberate names are not decoration. They are part of the architecture. In Make,
+where so much logic lives visually, a good name is often the difference between
+a workflow someone can maintain and a workflow someone is afraid to touch.

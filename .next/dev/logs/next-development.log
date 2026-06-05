@@ -1,0 +1,5 @@
+[00:00:01.600] Server  LOG     ✓ Ready in 1415ms
+[00:00:16.626] Browser WARN    motion() is deprecated. Use motion.create() instead.
+[00:23:01.523] Browser WARN    motion() is deprecated. Use motion.create() instead.
+[00:23:34.467] Browser WARN    motion() is deprecated. Use motion.create() instead.
+[00:23:57.119] Browser WARN    motion() is deprecated. Use motion.create() instead.

@@ -1,0 +1,142 @@
+export const article = {
+  date: '2026-03-14',
+  title: 'Processes, Threads, and Why Scheduling Matters',
+  description:
+    'Processes, PCBs, threads, scheduling, mutexes, and semaphores explain how CPUs share work and why concurrency is powerful but difficult.',
+  author: {
+    name: 'Dusti Johnson',
+    role: 'Developer',
+  },
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+## The CPU only runs what is loaded into context
+
+A program sitting on disk is not doing anything. It becomes a process when the
+operating system gives it memory, resources, and a place in the scheduling
+system. To actually run, the CPU needs the process's execution context: the
+program counter, register values, stack pointer, memory mappings, and current
+state.
+
+The important detail is that a CPU core does not magically run every process at
+once. At any instant, a core is executing one stream of instructions. What makes
+a computer feel like it is running many programs at once is fast switching,
+multiple cores, and the operating system's ability to pause and resume work.
+
+## The PCB is what makes stopping safe
+
+The process control block is the data structure that lets the OS stop a process
+without losing it. When a process is interrupted, blocked, or preempted, the OS
+has to save enough information to continue later as if nothing happened.
+
+That saved information lives in the PCB: process state, program counter, CPU
+registers, scheduling priority, memory information, accounting data, and
+resource handles. When the scheduler chooses that process again, the OS restores
+the saved context and the CPU continues from the stored program counter.
+
+This is also why multi-core CPUs can run multiple processes truly in parallel.
+Each core has its own current execution context, and the OS keeps track of which
+process or thread is assigned where. The PCB gives the scheduler a stable record
+of each process even while different cores are running different work.
+
+## Scheduling is not a promise
+
+It is tempting to imagine processes taking turns in a neat order, but real
+scheduling is not guaranteed that way. A process usually cannot assume it will
+run next, run soon, or run for a specific amount of time.
+
+The scheduler may interrupt a process because its time slice expired, a higher
+priority process became ready, an I/O operation completed, or the system needs
+to rebalance work across cores. Scheduling policies try to balance goals like
+responsiveness, throughput, fairness, priority, and CPU utilization, but the
+exact order is still something application code should not depend on.
+
+<TopTip>
+  A process should be written as if it can be paused almost anywhere and resumed
+  later, because from the program's point of view that is effectively true.
+</TopTip>
+
+## Concurrency is useful because waiting is common
+
+Concurrency helps because programs spend a lot of time waiting: for disk, the
+network, user input, locks, timers, or another process. If one process blocks,
+the OS can run something else instead of letting the CPU sit idle.
+
+On a single-core CPU, concurrency is mostly interleaving. The system switches
+between processes quickly enough that multiple programs appear to progress at
+the same time. On a multi-core CPU, concurrency can also become parallelism:
+different cores can execute different processes or threads at the same time.
+
+The pitfall is that concurrent programs are harder to reason about. If two
+pieces of work touch shared state, the final result may depend on timing. Since
+the scheduler does not promise a specific order, bugs can appear only sometimes,
+which makes them difficult to reproduce.
+
+## Threads make sharing cheaper and riskier
+
+Threads are lighter than processes because threads inside the same process share
+the process's address space and resources. Creating or switching between threads
+can be cheaper than doing the same with full processes, and shared memory makes
+communication faster.
+
+That sharing is also the danger. Threads can read and write the same variables,
+buffers, or data structures. If two threads update the same value at the same
+time, the result can be wrong even if each individual instruction looks
+reasonable.
+
+Processes are more isolated. They usually communicate through mechanisms like
+pipes, sockets, files, shared memory regions, or operating-system services.
+Threads communicate easily because they already share memory, but that means
+they need stronger discipline around ownership and synchronization.
+
+## Mutexes protect critical sections
+
+A mutex is a mutual exclusion lock. It is used when only one thread or process
+should enter a critical section at a time. The critical section is the part of
+the code that reads or modifies shared state.
+
+The basic idea is simple:
+
+- acquire the lock
+- use the shared resource
+- release the lock
+
+If another thread tries to acquire the same mutex while it is already locked, it
+has to wait. This prevents two threads from changing the shared state at the
+same time.
+
+Mutexes solve one problem by creating others to manage. If code forgets to
+release a lock, work can block forever. If two threads acquire locks in opposite
+orders, they can deadlock. If one thread holds a lock too long, performance can
+collapse because everyone else is waiting.
+
+## Semaphores coordinate limited access
+
+A semaphore is like a counter for access to a limited resource. Instead of
+allowing exactly one owner like a mutex, a semaphore can allow a set number of
+threads or processes through.
+
+For example, a semaphore initialized to `3` can represent three available
+database connections, workers, or resource slots. Each thread that enters
+decrements the semaphore. Each thread that leaves increments it. When the count
+reaches zero, new arrivals wait until someone releases a slot.
+
+Semaphores are useful for coordinating capacity. Mutexes are usually used for
+exclusive ownership. Both are tools for making concurrent work safe, but neither
+removes the need to design shared state carefully.
+
+## The lesson is control over assumptions
+
+Processes, threads, PCBs, schedulers, mutexes, and semaphores all point to the
+same lesson: concurrent systems require control over assumptions. You cannot
+assume what runs next. You cannot assume how long it runs. You cannot assume
+that shared state will stay unchanged unless you protect it.
+
+That is why operating-system concepts matter beyond OS class. The same ideas
+show up in web servers, queues, background jobs, async tasks, database
+transactions, and automation workflows. Good systems are built with respect for
+what can run at the same time and what must not.

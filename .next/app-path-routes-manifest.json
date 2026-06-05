@@ -1,0 +1,20 @@
+{
+  "/favicon.ico/route": "/favicon.ico",
+  "/_not-found/page": "/_not-found",
+  "/_global-error/page": "/_global-error",
+  "/blog/3-lessons-we-learned-going-back-to-the-office/page": "/blog/3-lessons-we-learned-going-back-to-the-office",
+  "/blog/future-of-web-development/page": "/blog/future-of-web-development",
+  "/blog/a-short-guide-to-component-naming/page": "/blog/a-short-guide-to-component-naming",
+  "/about/page": "/about",
+  "/blog/page": "/blog",
+  "/work/cache-simulator/page": "/work/cache-simulator",
+  "/work/clumsycat-website/page": "/work/clumsycat-website",
+  "/contact/page": "/contact",
+  "/work/mentor-data-table/page": "/work/mentor-data-table",
+  "/work/mesocycle-workout-planner/page": "/work/mesocycle-workout-planner",
+  "/work/reed-solomon-demo/page": "/work/reed-solomon-demo",
+  "/page": "/",
+  "/work/time-is-money/page": "/work/time-is-money",
+  "/process/page": "/process",
+  "/work/page": "/work"
+}
